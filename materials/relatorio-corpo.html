@@ -161,24 +161,24 @@
     sem tirar ninguém do site.</p>
 
   <h2>Medições</h2>
-  <p>Tudo medido no build de produção, servido estaticamente — antes e depois, do mesmo jeito.</p>
+  <p>O “antes” é o build de produção servido localmente; o “depois” é o <strong>site publicado</strong>, medido no endereço real.</p>
   <div class="scroller">
   <table>
     <thead><tr><th>Métrica</th><th>Antes</th><th>Depois</th></tr></thead>
     <tbody>
       <tr><td>Acessibilidade</td><td>100</td><td class="ok">100</td></tr>
       <tr><td>CLS</td><td>0,001</td><td class="ok">0,001</td></tr>
+      <tr><td>SEO</td><td>92</td><td class="ok">100</td></tr>
       <tr><td>Boas práticas</td><td>96</td><td class="ok">96</td></tr>
-      <tr><td>SEO</td><td>92</td><td class="ok">92</td></tr>
+      <tr><td>LCP</td><td>1,0 s</td><td class="ok">0,9 s</td></tr>
       <tr><td>Performance</td><td>99</td><td class="dn">98</td></tr>
-      <tr><td>LCP</td><td>1,0 s</td><td class="dn">1,1 s</td></tr>
       <tr><td>Altura da página (1440px)</td><td>6.492 px</td><td>13.257 px</td></tr>
       <tr><td>Scroll horizontal</td><td>nenhum</td><td class="ok">nenhum</td></tr>
     </tbody>
   </table>
   </div>
-  <p>O ponto de performance e o décimo de segundo de LCP saíram numa página que
-    <strong>dobrou de altura</strong>. O que o Lighthouse ainda aponta como oportunidade é tudo
+  <p>O ponto de performance saiu numa página que <strong>dobrou de altura</strong> — e, servida
+    pela Vercel, o LCP ficou melhor que antes. O que o Lighthouse ainda aponta como oportunidade é tudo
     anterior a este trabalho: as duas fontes variáveis da Fraunces (265 KB), os pacotes do
     Next e os dois logotipos. Não acrescentei família tipográfica nem biblioteca.</p>
   <p>Durante o caminho eu <strong>quebrei a acessibilidade e consertei</strong>: o turquesa da marca
