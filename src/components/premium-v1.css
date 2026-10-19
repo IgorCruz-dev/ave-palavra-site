@@ -207,11 +207,16 @@ html:has([data-org-site]) {
     .hero__stage--brand::after{display:none}
   }
   @media (max-width:600px){
-    .hero.hero .hero__stage--brand{height:380px}
-    .hero__stage--brand .stage__bird{width:104%;left:-2%;top:8%}
-    .hero__stage--brand .sheet--back{left:-18px;top:22%}
-    .hero__stage--brand .check-card{right:10px;top:150px}
-    .hero__stage--brand .pen{top:26px;right:-4px}
+    /* No celular as peças soltas (folha, checklist, caneta) ficavam cortadas
+       nas bordas e empurravam o título para baixo. Fica só o emblema: a ave
+       no centro do halo, e o texto e o botão sobem. */
+    .hero.hero .hero__stage--brand{height:230px}
+    .hero__stage--brand .sheet--back,
+    .hero__stage--brand .check-card,
+    .hero__stage--brand .pen{display:none}
+    .hero__stage--brand .stage__halo{width:280px;height:280px;margin-left:-140px;top:-34px}
+    .hero__stage--brand .stage__ring{width:190px;height:190px;margin-left:-95px;top:-2px}
+    .hero__stage--brand .stage__bird{width:54%;left:22%;top:44px}
   }
 
   .hero__scroll{position:absolute;left:50%;bottom:26px;width:26px;height:42px;border-radius:14px;border:1.5px solid rgba(255,255,255,.4);z-index:6;transform:translateX(-50%)}
