@@ -351,6 +351,39 @@ export function Tick({ light = false }: { light?: boolean }) {
   return <span className={`tick${light ? ' tick--light' : ''}`} />;
 }
 
+/**
+ * "Ver detalhes": a seção mostra o essencial e guarda o resto aqui.
+ *
+ * É um <details> nativo: abre sem JS, o conteúdo continua no HTML (bom para
+ * busca) e o leitor de tela anuncia aberto/fechado sozinho. Os `.reveal` de
+ * dentro só ganham caixa ao abrir, e é aí que o observer os revela.
+ */
+export function MoreDetails({
+  label,
+  openLabel = 'Ver menos',
+  tone = 'light',
+  children,
+}: {
+  label: string;
+  openLabel?: string;
+  /** `dark` para seções de fundo escuro. */
+  tone?: 'light' | 'dark';
+  children: ReactNode;
+}) {
+  return (
+    <details className={`more more--${tone}`}>
+      <summary className="more__toggle">
+        <span className="more__closed">{label}</span>
+        <span className="more__open">{openLabel}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </summary>
+      <div className="more__body">{children}</div>
+    </details>
+  );
+}
+
 type ButtonVariant = 'teal' | 'sun' | 'ghost';
 
 /**

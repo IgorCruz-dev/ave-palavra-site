@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Reveal, SectionTitle, Tick } from '../primitives';
+import { CtaButton, MoreDetails, Reveal, SectionTitle, Tick } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { SiteLinks, TravessiaSection as TravessiaData } from '@/content/types';
 
@@ -10,6 +10,10 @@ import type { SiteLinks, TravessiaSection as TravessiaData } from '@/content/typ
  *
  * A arte da ponte (ponte + ampulheta + despertador) é marca d'água, no mesmo
  * registro da ave gigante do herói: decorativa, `alt` vazio, atrás do conteúdo.
+ *
+ * Fica no essencial — linha do tempo, horários e botão — e guarda o resto em
+ * "Ver tudo sobre o curso": o pedido foi um site mais direto, com menos
+ * rolagem.
  *
  * A peça central é a linha do tempo das três horas de aula. Ela é a resposta a
  * "jogar as informações do curso no site" que uma lista de tópicos não dá: o
@@ -72,74 +76,14 @@ export function TravessiaSection({
           )}
         </div>
 
-        {timeline && timeline.blocks.length > 0 && <ClassTimeline timeline={timeline} />}
+        {/* O essencial à vista: como é a aula, quando acontece e o botão. O
+            resto (pilares, gêneros, bancas, foto) fica em "Ver tudo". */}
+        <div className="trav__main">
+          {timeline && timeline.blocks.length > 0 && <ClassTimeline timeline={timeline} />}
 
-        {travessia.photo?.image_url && (
-          <Reveal as="figure" className="place" style={{ marginTop: 28 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={travessia.photo.image_url}
-              alt={travessia.photo.alt}
-              width={1320}
-              height={503}
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption className="place__cap">
-              {travessia.photo.kicker && <span className="place__k">{travessia.photo.kicker}</span>}
-              {travessia.photo.text && <span className="place__t">{travessia.photo.text}</span>}
-            </figcaption>
-          </Reveal>
-        )}
-
-        {travessia.pillars.length > 0 && (
-          <ul className="pillars">
-            {travessia.pillars.map((pillar, i) => (
-              <Reveal as="li" key={pillar.title} index={i % 3} className="pillar">
-                <span className="pillar__n">{String(i + 1).padStart(2, '0')}</span>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.text}</p>
-              </Reveal>
-            ))}
-          </ul>
-        )}
-
-        <div className="trav__cols">
-          <div>
-            {genres && genres.items.length > 0 && (
-              <Reveal className="panel">
-                <p className="panel__kicker">{genres.kicker}</p>
-                <h3 className="panel__title">{genres.title}</h3>
-                <ul className="tagrow">
-                  {genres.items.map((item) => (
-                    <li className="tag" key={item}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            )}
-
-            {boards && boards.items.length > 0 && (
-              <Reveal className="panel" index={1}>
-                <p className="panel__kicker">{boards.kicker}</p>
-                <h3 className="panel__title">{boards.title}</h3>
-                <ul className="tagrow">
-                  {boards.items.map((item) => (
-                    <li className="tag tag--board" key={item}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                {/* Deixa inequívoco que são conteúdos de estudo, não aprovações. */}
-                {boards.note && <p className="panel__note">{boards.note}</p>}
-              </Reveal>
-            )}
-          </div>
-
-          <div>
+          <div className="trav__aside">
             {classes && classes.items.length > 0 && (
-              <Reveal className="panel">
+              <Reveal className="panel" index={1}>
                 <p className="panel__kicker">{classes.kicker}</p>
                 <h3 className="panel__title">{classes.title}</h3>
                 <ul className="classes">
@@ -154,34 +98,102 @@ export function TravessiaSection({
               </Reveal>
             )}
 
-            {general && general.items.length > 0 && (
-              <Reveal className="panel" index={1}>
-                <p className="panel__kicker">{general.kicker}</p>
-                <ul className="ticks" style={{ marginTop: 16 }}>
-                  {general.items.map((item) => (
-                    <li key={item}>
-                      <Tick />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+            {travessia.primary_cta && (
+              <Reveal className="trav__cta" index={2}>
+                <CtaButton
+                  cta={travessia.primary_cta}
+                  href={resolveCtaHref(travessia.primary_cta, ctx)}
+                  external={ctaIsExternal(travessia.primary_cta)}
+                  variant="teal"
+                  size="lg"
+                  withArrow
+                />
               </Reveal>
             )}
           </div>
         </div>
 
-        {travessia.primary_cta && (
-          <Reveal className="trav__cta">
-            <CtaButton
-              cta={travessia.primary_cta}
-              href={resolveCtaHref(travessia.primary_cta, ctx)}
-              external={ctaIsExternal(travessia.primary_cta)}
-              variant="teal"
-              size="lg"
-              withArrow
-            />
-          </Reveal>
-        )}
+        <MoreDetails label="Ver tudo sobre o curso">
+          {travessia.pillars.length > 0 && (
+            <ul className="pillars">
+              {travessia.pillars.map((pillar, i) => (
+                <Reveal as="li" key={pillar.title} index={i % 3} className="pillar">
+                  <span className="pillar__n">{String(i + 1).padStart(2, '0')}</span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.text}</p>
+                </Reveal>
+              ))}
+            </ul>
+          )}
+
+          <div className="trav__cols">
+            <div>
+              {genres && genres.items.length > 0 && (
+                <Reveal className="panel">
+                  <p className="panel__kicker">{genres.kicker}</p>
+                  <h3 className="panel__title">{genres.title}</h3>
+                  <ul className="tagrow">
+                    {genres.items.map((item) => (
+                      <li className="tag" key={item}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              )}
+            </div>
+
+            <div>
+              {boards && boards.items.length > 0 && (
+                <Reveal className="panel" index={1}>
+                  <p className="panel__kicker">{boards.kicker}</p>
+                  <h3 className="panel__title">{boards.title}</h3>
+                  <ul className="tagrow">
+                    {boards.items.map((item) => (
+                      <li className="tag tag--board" key={item}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Deixa inequívoco que são conteúdos de estudo, não aprovações. */}
+                  {boards.note && <p className="panel__note">{boards.note}</p>}
+                </Reveal>
+              )}
+            </div>
+          </div>
+
+          {general && general.items.length > 0 && (
+            <Reveal className="panel">
+              <p className="panel__kicker">{general.kicker}</p>
+              <ul className="ticks ticks--cols" style={{ marginTop: 16 }}>
+                {general.items.map((item) => (
+                  <li key={item}>
+                    <Tick />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          )}
+
+          {travessia.photo?.image_url && (
+            <Reveal as="figure" className="place">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={travessia.photo.image_url}
+                alt={travessia.photo.alt}
+                width={1320}
+                height={503}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption className="place__cap">
+                {travessia.photo.kicker && <span className="place__k">{travessia.photo.kicker}</span>}
+                {travessia.photo.text && <span className="place__t">{travessia.photo.text}</span>}
+              </figcaption>
+            </Reveal>
+          )}
+        </MoreDetails>
       </div>
     </section>
   );

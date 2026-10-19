@@ -102,7 +102,7 @@ html:has([data-org-site]) {
   .eyebrow--dark{color:var(--teal-ink)}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(43,196,216,.2),0 0 18px var(--teal)}
   .dot--sun{background:var(--sun);box-shadow:0 0 0 4px rgba(246,212,74,.22),0 0 18px var(--sun)}
-  .sec-head{max-width:760px;margin-bottom:64px}
+  .sec-head{max-width:760px;margin-bottom:48px}
   .sec-title{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.2vw,72px);line-height:1.02;letter-spacing:-.025em;margin:18px 0 20px;font-variation-settings:"opsz" 144,"SOFT" 30}
   .sec-title em{color:var(--teal-2);font-weight:500;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
   .sec-head--light .sec-title{color:#fff}
@@ -220,7 +220,7 @@ html:has([data-org-site]) {
   .float-a{animation:ops-fa 9s ease-in-out infinite}.float-b{animation:ops-fb 7s ease-in-out infinite}.float-c{animation:ops-fb 8s ease-in-out -2s infinite}.float-d{animation:ops-fd 6.5s ease-in-out infinite}
 
   /* ================= RESULTADOS ================= */
-  .results{position:relative;padding:150px 0 130px;background:radial-gradient(70% 60% at 85% 10%,rgba(43,196,216,.14),transparent 70%),linear-gradient(180deg,var(--mist),var(--paper) 60%)}
+  .results{position:relative;padding:104px 0 96px;background:radial-gradient(70% 60% at 85% 10%,rgba(43,196,216,.14),transparent 70%),linear-gradient(180deg,var(--mist),var(--paper) 60%)}
   .results__grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
   .essay3d{position:relative;perspective:1400px;padding:30px 20px 60px}
   .essay3d__paper{position:relative;background:#fff;border-radius:16px;padding:34px 40px 46px;transform:rotateX(14deg) rotateY(-16deg) rotateZ(3deg);transform-style:preserve-3d;box-shadow:0 1px 0 #fff inset,-30px 50px 80px -30px rgba(13,26,74,.45),0 4px 0 #e9edf5,0 8px 0 #dfe5f0;transition:transform .8s var(--ease)}
@@ -270,7 +270,7 @@ html:has([data-org-site]) {
   .facts span{display:block;font-size:14.5px;color:var(--muted);margin-top:6px;line-height:1.5}
 
   /* ================= MÉTODO ================= */
-  .method{position:relative;padding:150px 0 160px;background:linear-gradient(180deg,var(--night),var(--ink) 50%,#0b1846);color:#fff;overflow:hidden}
+  .method{position:relative;padding:104px 0 110px;background:linear-gradient(180deg,var(--night),var(--ink) 50%,#0b1846);color:#fff;overflow:hidden}
   .method__glow{position:absolute;width:1100px;height:700px;right:-300px;bottom:-200px;border-radius:50%;background:radial-gradient(closest-side,rgba(43,196,216,.32),transparent);filter:blur(40px)}
   .steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .step{position:relative;padding:34px 30px 36px;border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);overflow:hidden;transition:transform .5s var(--ease),border-color .5s}
@@ -321,7 +321,7 @@ html:has([data-org-site]) {
   .scores .demo-tag{margin-top:16px}
 
   /* ================= POR DENTRO ================= */
-  .inside{padding:150px 0 140px;background:var(--paper);position:relative;overflow:hidden}
+  .inside{padding:104px 0 100px;background:var(--paper);position:relative;overflow:hidden}
   .inside::before{content:"";position:absolute;left:-200px;top:120px;width:700px;height:700px;border-radius:50%;background:radial-gradient(closest-side,rgba(43,196,216,.14),transparent)}
   .inside__grid{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
   .quotes{display:grid;gap:18px;margin-top:40px}
@@ -412,14 +412,14 @@ html:has([data-org-site]) {
     .hero__copy{margin-top:-40px}
     .name-card,.check-card{z-index:5}
     .hero__scroll{display:none}
-    .results{padding:120px 0}
+    .results{padding:84px 0}
     .results__grid{grid-template-columns:1fr;gap:30px}
     .essay3d{max-width:620px;margin:0 auto}
     .results__side{display:grid;grid-template-columns:1fr 1fr;gap:20px}
     .facts{grid-template-columns:1fr 1fr;margin-top:60px}
     .facts li:nth-child(3){padding-left:0;border-left:0}
     .facts li{padding-bottom:20px}
-    .method{padding:120px 0}
+    .method{padding:84px 0}
     .steps{grid-template-columns:1fr;gap:16px}
     .step{display:grid;grid-template-columns:120px 1fr;column-gap:20px;align-items:start}
     .step__n{grid-row:span 2;font-size:80px}
@@ -427,7 +427,7 @@ html:has([data-org-site]) {
     .correction{grid-template-columns:1fr;margin-top:60px}
     .correction__paper{transform:none;padding:36px 200px 44px 36px}
     .scores{margin:-60px 30px 0;transform:none}
-    .inside{padding:120px 0}
+    .inside{padding:84px 0}
     .inside__grid{grid-template-columns:1fr;gap:50px}
     .quotes{grid-template-columns:1fr 1fr}.quote--alt{margin-left:0}
     .enroll{padding:20px 20px 90px}
@@ -477,10 +477,10 @@ html:has([data-org-site]) {
     .hero__proof b{font-size:24px}
     .hero__proof span{font-size:11.5px}
 
-    .sec-head{margin-bottom:40px}
+    .sec-head{margin-bottom:32px}
     .sec-title{font-size:42px}
     .sec-lead{font-size:16.5px}
-    .results{padding:90px 0 80px}
+    .results{padding:64px 0 60px}
     .essay3d{padding:10px 0 56px}
     .essay3d__paper{padding:22px 22px 34px;transform:rotateX(10deg) rotateY(-8deg) rotateZ(2deg)}
     .essay3d__meta{display:none}
@@ -500,7 +500,7 @@ html:has([data-org-site]) {
     .facts li:nth-child(3){padding-left:0}
     .facts b{font-size:24px}.facts span{font-size:13px}
 
-    .method{padding:90px 0}
+    .method{padding:64px 0}
     .step{display:block;padding:26px 22px}
     .step__n{font-size:64px}
     .step h3{font-size:28px;margin:10px 0 6px}
@@ -515,7 +515,7 @@ html:has([data-org-site]) {
     .scores li em{font-size:13px}
     .scores__total b{font-size:36px}
 
-    .inside{padding:90px 0}
+    .inside{padding:64px 0}
     .quotes{grid-template-columns:1fr}
     .inside__grid{display:flex;flex-direction:column}
     .inside__media{grid-template-columns:1fr;order:0}
@@ -673,10 +673,10 @@ html:has([data-org-site]) {
    * Humanidades. Fundo claro com o ciano do material institucional, e a arte
    * da ponte como marca d'água (mesmo registro da ave gigante do herói).
    * ===================================================================== */
-  .trav{position:relative;padding:150px 0 140px;overflow:hidden;background:radial-gradient(80% 60% at 20% 0%,rgba(43,196,216,.18),transparent 70%),linear-gradient(180deg,var(--paper),#e9f7fb 45%,var(--mist))}
+  .trav{position:relative;padding:104px 0 96px;overflow:hidden;background:radial-gradient(80% 60% at 20% 0%,rgba(43,196,216,.18),transparent 70%),linear-gradient(180deg,var(--paper),#e9f7fb 45%,var(--mist))}
   .trav__bridge{position:absolute;left:50%;top:40px;width:min(1500px,118%);margin-left:min(-750px,-59%);opacity:.14;pointer-events:none;z-index:0}
   .trav .wrap{position:relative;z-index:1}
-  .trav__head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:end;margin-bottom:76px}
+  .trav__head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:end;margin-bottom:48px}
   .trav__head .sec-head{margin-bottom:0;max-width:none}
 
   /* epígrafe de Guimarães Rosa */
@@ -730,13 +730,38 @@ html:has([data-org-site]) {
   .ticks .tick::after{left:6px;top:3px;width:5px;height:9.5px;border-width:0 2px 2px 0}
   .trav__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:52px}
 
+  /* essencial à vista: linha do tempo + horários e botão ao lado */
+  .trav__main{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:22px;align-items:stretch}
+  .trav__aside{display:flex;flex-direction:column;gap:22px}
+  .trav__aside .panel{flex:1}
+  .trav__aside .trav__cta{margin-top:0}
+  .trav__aside .trav__cta .btn{width:100%;justify-content:center}
+  .more .pillars,.more .trav__cols{margin-top:0}
+  .ticks--cols{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));column-gap:24px}
+
+  /* "Ver detalhes": <details> nativo, com o botão centralizado */
+  .more{margin-top:28px}
+  .more__toggle{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;max-width:100%;margin:0 auto;padding:13px 24px;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;list-style:none;transition:background .3s,border-color .3s}
+  .more__toggle::-webkit-details-marker{display:none}
+  .more__toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+  .more[open] .more__toggle svg{transform:rotate(180deg)}
+  .more__open{display:none}
+  .more[open] .more__open{display:inline}
+  .more[open] .more__closed{display:none}
+  .more__toggle:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+  .more--light .more__toggle{color:var(--navy);background:rgba(255,255,255,.75);border:1px solid rgba(28,48,110,.16);box-shadow:0 12px 30px -20px rgba(13,26,74,.4)}
+  .more--light .more__toggle:hover{background:#fff;border-color:rgba(28,48,110,.3)}
+  .more--dark .more__toggle{color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2)}
+  .more--dark .more__toggle:hover{background:rgba(255,255,255,.12)}
+  .more__body{display:flex;flex-direction:column;gap:22px;margin-top:28px;animation:ops-menu-in .35s var(--ease)}
+
   /* =====================================================================
    * MIGUILIM — a ilha quente. Mesma tipografia, mesmas primitivas de card e
    * botão, mesmo ritmo de espaçamento; só o fundo muda. Os tokens quentes
    * vivem AQUI, no escopo da seção, e não entram no TEMA do site.
    * ===================================================================== */
   .mig{--cream:#fff8ec;--rose:#ffeaf0;--peach:#ffe2c9;--mig-ink:var(--ink);
-       position:relative;padding:150px 0 140px;overflow:hidden;color:var(--mig-ink);
+       position:relative;padding:104px 0 96px;overflow:hidden;color:var(--mig-ink);
        background:radial-gradient(70% 55% at 85% 8%,rgba(255,214,228,.85),transparent 68%),linear-gradient(145deg,var(--cream),#fff1e4 42%,var(--rose))}
   .mig::before{content:"";position:absolute;left:-180px;bottom:-220px;width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,212,74,.3),transparent);pointer-events:none}
   .mig .wrap{position:relative;z-index:1}
@@ -870,13 +895,14 @@ html:has([data-org-site]) {
 
   /* ================= TABLET ≤1100 ================= */
   @media (max-width:1100px){
-    .trav{padding:110px 0 100px}
+    .trav{padding:84px 0 80px}
+    .trav__main{grid-template-columns:1fr}
     .trav__head{grid-template-columns:1fr;gap:34px;margin-bottom:54px;align-items:start}
     .trav__bridge{top:20px;opacity:.1}
     .pillars{grid-template-columns:1fr 1fr;margin-top:50px}
     .trav__cols{grid-template-columns:1fr;gap:22px;margin-top:50px}
     .tl__legend{grid-template-columns:repeat(3,1fr)}
-    .mig{padding:110px 0 100px}
+    .mig{padding:84px 0 80px}
     .mig__grid{grid-template-columns:1fr;gap:44px}
     .mig__story{max-width:none}
     .mig__groups{grid-template-columns:1fr;margin-top:54px}
@@ -895,7 +921,7 @@ html:has([data-org-site]) {
 
   /* ================= MOBILE ≤600 ================= */
   @media (max-width:600px){
-    .trav{padding:84px 0 78px}
+    .trav{padding:64px 0 60px}
     .trav__bridge{width:170%;margin-left:-85%;top:0;opacity:.09}
     .trav__head{margin-bottom:40px}
     .epigraph{padding-left:18px}
@@ -909,10 +935,10 @@ html:has([data-org-site]) {
     .trav__cols{margin-top:40px}
     .panel{padding:24px 22px}
     .panel__title{font-size:21px}
-    .trav__cta{margin-top:36px}
+    .trav__cta{margin-top:0}
     .trav__cta .btn{width:100%;justify-content:center}
 
-    .mig{padding:84px 0 78px}
+    .mig{padding:64px 0 60px}
     .mig__grid{gap:34px;margin-top:4px}
     .mig__story{font-size:16.5px}
     .lens-stage{min-height:250px;--lens-size:150px;--lens-travel:88px;border-radius:22px}
@@ -926,7 +952,7 @@ html:has([data-org-site]) {
     .mig__sign{font-size:25px;max-width:none}
     .mig__foot .btn{width:100%;justify-content:center}
 
-    .svc{padding:70px 0 66px}
+    .svc{padding:60px 0 56px}
     .svc__cards{gap:14px}
     .svc-card{padding:26px 22px 24px}
     .svc-card h3{font-size:24px}
