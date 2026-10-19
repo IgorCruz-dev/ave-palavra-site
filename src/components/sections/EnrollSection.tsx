@@ -26,6 +26,27 @@ export function EnrollSection({
 
   return (
     <section className="enroll" id="matriculas" aria-labelledby="en-title">
+      {/* A fachada é a única foto do lugar físico que temos. Vem antes do
+          painel porque ela faz a transição: a escola existe, tem endereço e
+          porta, e é para lá que o botão abaixo leva a conversa. */}
+      {enroll.place?.image_url && (
+        <Reveal as="figure" className="place">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={enroll.place.image_url}
+            alt={enroll.place.alt}
+            width={1320}
+            height={503}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption className="place__cap">
+            {enroll.place.kicker && <span className="place__k">{enroll.place.kicker}</span>}
+            {enroll.place.text && <span className="place__t">{enroll.place.text}</span>}
+          </figcaption>
+        </Reveal>
+      )}
+
       <div className="enroll__panel">
         <div className="enroll__bg" aria-hidden="true">
           {symbolUrl && (

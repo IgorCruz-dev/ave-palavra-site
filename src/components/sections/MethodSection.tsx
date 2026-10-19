@@ -44,6 +44,16 @@ export function MethodSection({
           </Reveal>
         </header>
 
+        {method.opening && (
+          <Reveal className="mopen" index={2}>
+            <p className="mopen__q">{method.opening.quote}</p>
+            <p
+              className="mopen__t"
+              dangerouslySetInnerHTML={{ __html: method.opening.text_html }}
+            />
+          </Reveal>
+        )}
+
         {method.steps.length > 0 && (
           <ol className="steps">
             {method.steps.map((step, i) => {
@@ -65,6 +75,28 @@ export function MethodSection({
               );
             })}
           </ol>
+        )}
+
+        {method.cycle && method.cycle.steps.length > 0 && (
+          <Reveal className="cycle">
+            <div className="cycle__top">
+              <div>
+                <p className="panel__kicker" style={{ color: 'var(--sky)' }}>
+                  {method.cycle.kicker}
+                </p>
+                <h3 className="cycle__title">{method.cycle.title}</h3>
+              </div>
+              {method.cycle.note && <p className="cycle__note">{method.cycle.note}</p>}
+            </div>
+            <ol className="cycle__steps">
+              {method.cycle.steps.map((step) => (
+                <li className="cstep" key={step.label}>
+                  <b>{step.label}</b>
+                  <span>{step.text}</span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
         )}
 
         {demo?.visible && (

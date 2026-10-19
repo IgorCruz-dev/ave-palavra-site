@@ -6,7 +6,10 @@ import { SiteNav } from './sections/SiteNav';
 import { HeroSection } from './sections/HeroSection';
 import { ResultsSection } from './sections/ResultsSection';
 import { MethodSection } from './sections/MethodSection';
+import { TravessiaSection } from './sections/TravessiaSection';
+import { MiguilimSection } from './sections/MiguilimSection';
 import { InsideSection } from './sections/InsideSection';
+import { ServicesSection } from './sections/ServicesSection';
 import { EnrollSection } from './sections/EnrollSection';
 import { SiteFooter } from './sections/SiteFooter';
 import { REVEAL_BOOTSTRAP_SCRIPT, RevealController } from './primitives';
@@ -19,9 +22,14 @@ import './premium-v1.css';
  * deixa a interatividade para os filhos marcados com 'use client'.
  *
  * Cada seção é opcional — o que não estiver em `site.ts` simplesmente não é
- * renderizado. O ritmo de fundos (escuro → claro → escuro → claro → painel →
- * escuro) se mantém mesmo com seções faltando, porque cada seção pinta o
- * próprio fundo.
+ * renderizado. O ritmo de fundos se mantém mesmo com seções faltando, porque
+ * cada seção pinta o próprio fundo:
+ *
+ *   herói escuro → resultados claro → método escuro → travessia claro →
+ *   miguilim quente → por dentro claro → serviços escuro → painel → rodapé.
+ *
+ * A seção quente do Miguilim é o único desvio de paleta do site, e é
+ * deliberado: ver o comentário em MiguilimSection.
  */
 export function SiteTemplate() {
   // `{years}` é expandido uma vez, aqui, para todo o conteúdo.
@@ -82,8 +90,20 @@ export function SiteTemplate() {
           />
         )}
 
+        {content.travessia?.visible !== false && content.travessia && (
+          <TravessiaSection travessia={content.travessia} ctx={links} />
+        )}
+
+        {content.miguilim?.visible !== false && content.miguilim && (
+          <MiguilimSection miguilim={content.miguilim} ctx={links} />
+        )}
+
         {content.inside?.visible !== false && content.inside && (
           <InsideSection inside={content.inside} preview={false} />
+        )}
+
+        {content.services?.visible !== false && content.services && (
+          <ServicesSection services={content.services} ctx={links} />
         )}
 
         {content.enroll?.visible !== false && content.enroll && (

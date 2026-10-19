@@ -1,7 +1,7 @@
 'use client';
 
 import { BrandMark, DemoTag, Reveal, SectionTitle, useTilt } from '../primitives';
-import type { Approvals, Evolution, FeaturedEssay, ResultsSection as ResultsData } from '@/content/types';
+import type { Approvals, Evolution, FeaturedEssay, RealStat, ResultsSection as ResultsData } from '@/content/types';
 
 /**
  * Seção "Resultados": folha de redação 3D com o selo da nota, card de evolução
@@ -22,6 +22,7 @@ export function ResultsSection({
   const essay = results.featured_essay;
   const evolution = results.evolution;
   const approvals = results.approvals;
+  const realStat = results.real_stat;
 
   const showEssay = Boolean(essay?.visible && essay.score != null);
   const showEvolution = Boolean(evolution?.visible && evolution.points.length >= 2);
@@ -29,6 +30,7 @@ export function ResultsSection({
   const showApprovals = Boolean(
     approvals?.visible && (approvals.items.length > 0 || approvals.placeholder_when_empty),
   );
+  const showRealStat = Boolean(realStat?.visible && realStat.value);
 
   return (
     <section className="results" id="resultados" aria-labelledby="res-title">
@@ -50,12 +52,13 @@ export function ResultsSection({
           )}
         </header>
 
-        {(showEssay || showEvolution || showApprovals) && (
+        {(showEssay || showEvolution || showApprovals || showRealStat) && (
           <div className="results__grid">
             {showEssay && essay && <EssaySheet3D essay={essay} symbolUrl={symbolUrl} />}
 
-            {(showEvolution || showApprovals) && (
+            {(showEvolution || showApprovals || showRealStat) && (
               <div className="results__side">
+                {showRealStat && realStat && <RealStatCard stat={realStat} />}
                 {showEvolution && evolution && <EvolutionCard evolution={evolution} />}
                 {showApprovals && approvals && <ApprovalsCard approvals={approvals} preview={preview} />}
               </div>
@@ -75,6 +78,24 @@ export function ResultsSection({
         )}
       </div>
     </section>
+  );
+}
+
+/**
+ * Dado REAL, sem selo de exemplo.
+ *
+ * É o primeiro número verificado do site, e por isso vem acompanhado da fonte:
+ * número grande sem recorte envelhece mal, e quem lê tem direito de saber de
+ * onde ele saiu. A linha da fonte não é rodapé decorativo — é parte do dado.
+ */
+function RealStatCard({ stat }: { stat: RealStat }) {
+  return (
+    <Reveal className="card card--real">
+      <p className="card__kicker">{stat.kicker}</p>
+      <p className="real__v">{stat.value}</p>
+      <p className="real__l">{stat.label}</p>
+      {stat.source && <p className="real__src">{stat.source}</p>}
+    </Reveal>
   );
 }
 

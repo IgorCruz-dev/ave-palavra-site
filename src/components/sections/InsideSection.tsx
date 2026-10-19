@@ -1,7 +1,34 @@
 'use client';
 
 import { Reveal, SectionTitle, VideoLightbox, useTilt, useVideoLightbox } from '../primitives';
-import type { InsideSection as InsideData, VideoItem } from '@/content/types';
+import type { InsideSection as InsideData, TeamBlock, VideoItem } from '@/content/types';
+
+/**
+ * Um item que só tem `external_url` NÃO toca na página: ele abre o Instagram.
+ * O ícone de play sozinho prometia reprodução local, então quem só leva para
+ * fora ganha um selo visível e um rótulo de acessibilidade que dizem para onde
+ * o clique vai. Quando os arquivos dos reels chegarem, basta preencher
+ * `video_url` em site.ts: o selo some e o vídeo passa a tocar no lightbox.
+ */
+function isExternalOnly(item: VideoItem): boolean {
+  return !item.video_url && Boolean(item.external_url);
+}
+
+/** Rótulo honesto para o botão de play, conforme o destino real do clique. */
+function playLabel(item: VideoItem): string {
+  return isExternalOnly(item) ? `Abrir no Instagram: ${item.title}` : `Assistir: ${item.title}`;
+}
+
+function ExternalBadge() {
+  return (
+    <span className="ext-badge">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 4h6v6M20 4l-8.5 8.5M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" />
+      </svg>
+      Instagram
+    </span>
+  );
+}
 
 /**
  * Seção "Por dentro / Histórias reais": vídeo principal, reels e depoimentos.
@@ -109,10 +136,11 @@ export function InsideSection({ inside, preview }: { inside: InsideData; preview
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={reel.cover_url} alt={reel.alt || reel.title} loading="lazy" decoding="async" />
                   )}
+                  {isExternalOnly(reel) && <ExternalBadge />}
                   <button
                     type="button"
                     className="reel__play"
-                    aria-label={`Assistir: ${reel.title}`}
+                    aria-label={playLabel(reel)}
                     onClick={() => openVideo(reel)}
                   />
                   <figcaption>{reel.title}</figcaption>
@@ -123,10 +151,50 @@ export function InsideSection({ inside, preview }: { inside: InsideData; preview
         </div>
       </div>
 
+      {inside.team && inside.team.visible && inside.team.members.length > 0 && (
+        <div className="wrap">
+          <TeamGrid team={inside.team} />
+        </div>
+      )}
+
       {lightbox.open && (
         <VideoLightbox videoUrl={lightbox.open.url} title={lightbox.open.title} onClose={lightbox.hide} />
       )}
     </section>
+  );
+}
+
+/**
+ * Grade de professores.
+ *
+ * Só renderiza com `members` preenchido. Publicar foto de professor sem nome é
+ * pior do que não publicar, e nome inventado não é opção — então, enquanto os
+ * nomes e as disciplinas não chegarem, a seção simplesmente não existe no HTML.
+ * As fotos já estão tratadas e versionadas; falta só o dado.
+ */
+function TeamGrid({ team }: { team: TeamBlock }) {
+  return (
+    <div className="team">
+      <p className="panel__kicker">{team.kicker}</p>
+      <h3 className="panel__title" style={{ fontSize: 30, margin: '8px 0 10px' }}>
+        {team.title}
+      </h3>
+      {team.lead && <p className="sec-lead">{team.lead}</p>}
+      <ul className="team__grid">
+        {team.members.map((m, i) => (
+          <Reveal as="li" key={m.name} index={i % 5} className="tmember">
+            <span className="tmember__ph">
+              {m.photo_url && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={m.photo_url} alt={m.alt || m.name} width={320} height={320} loading="lazy" decoding="async" />
+              )}
+            </span>
+            <b>{m.name}</b>
+            <span>{m.role}</span>
+          </Reveal>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -141,11 +209,12 @@ function MainVideo({ video, onOpen }: { video: VideoItem; onOpen: (v: VideoItem)
         <img src={video.cover_url} alt={video.alt || video.title} loading="lazy" decoding="async" />
       )}
       <div className="video__shade" aria-hidden="true" />
+      {isExternalOnly(video) && <ExternalBadge />}
       {playable && (
         <button
           type="button"
           className="video__play"
-          aria-label={`Assistir: ${video.title}`}
+          aria-label={playLabel(video)}
           onClick={() => onOpen(video)}
         >
           <span aria-hidden="true" />
