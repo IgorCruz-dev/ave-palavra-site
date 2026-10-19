@@ -1049,5 +1049,24 @@ html:has([data-org-site]) { scroll-behavior: auto; }
 
     /* A fachada é horizontal: o cartão de contato só encosta na base dela. */
     .contact-card{margin-top:-28px}
+
+    /* Linha do tempo da aula: a barra sem os números não dizia nada e a
+       legenda em duas colunas se espalhava. Vira uma lista, um tempo por
+       linha com os minutos à direita, e a barra fica fina, só proporção. */
+    .tl__total{display:none}
+    .tl__top{margin-bottom:14px}
+    .tl__bar{height:10px;gap:3px;margin-bottom:6px}
+    .tl__seg{min-width:8px;border-radius:5px;padding:0;box-shadow:none}
+    .tl__legend{grid-template-columns:1fr;gap:0;border-top:0;padding-top:0}
+    .tl__legend li{display:grid;grid-template-columns:5px 1fr auto;align-items:center;column-gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+    .tl__legend li:first-child{border-top:0}
+    .tl__legend i{width:5px;height:22px;margin:0;border-radius:3px}
+    .tl__legend b{font-size:16px}
+    .tl__legend span{font-size:14px;white-space:nowrap}
+    .tl__legend li.is-break{padding:7px 0}
+    .tl__legend li.is-break i{height:12px}
+    .tl__legend li.is-break b{font-size:13.5px;font-weight:600;color:var(--muted)}
+    .tl__legend li.is-break span{font-size:12.5px}
+    .tl__note{margin-top:10px}
   }
 }
