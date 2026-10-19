@@ -34,6 +34,10 @@ export const CONTEUDO: SiteContent = {
           anchor: 'metodo',
         },
         {
+          label: 'Cursos',
+          anchor: 'cursos',
+        },
+        {
           label: 'Por dentro',
           anchor: 'por-dentro',
         },
@@ -134,6 +138,267 @@ export const CONTEUDO: SiteContent = {
     brand: {
       symbol_url: '/img/ave.webp',
     },
+    travessia: {
+      visible: true,
+      eyebrow: 'Tempo de Travessia · Redação e Humanidades',
+      title: 'Preparar para a prova\ne para o que vem',
+      title_highlight: 'depois dela.',
+      title_highlight_inline: false,
+      lead: 'O curso de Redação e Humanidades é um espaço de aprendizado e reflexão para quem está vivendo o intenso momento da travessia do vestibular. Com uma abordagem humana e criativa, o curso guia o desenvolvimento da escrita, do pensamento crítico e da expressão pessoal.',
+      epigraph: {
+        text: 'Digo: o real não está na saída nem na chegada: ele se dispõe para a gente é no meio da travessia.',
+        author: 'Guimarães Rosa',
+      },
+      // Arte da campanha de 2026, extraída dos PDFs institucionais a 600 dpi e
+      // recolorida em navy para fundo claro.
+      bridge_image_url: '/img/ponte-travessia.webp',
+      bridge_alt: '',
+      // Recortada de dentro do post de setembro/2026 — a arte de feed não entra
+      // no site, mas a fotografia dela, sim.
+      photo: {
+        image_url: '/img/aula.webp',
+        alt: 'Turma de redação em aula, escrevendo, diante da parede com os nomes de Machado de Assis, Guimarães Rosa, Manoel de Barros e Jorge Amado',
+        kicker: 'Escrita em aula',
+        text: 'Toda semana, o texto nasce em sala, com o professor por perto.',
+      },
+      timeline: {
+        kicker: 'Dinâmica da aula',
+        title: 'Três horas, três tempos',
+        blocks: [
+          { minutes: 55, label: 'Humanidades', kind: 'aula' },
+          { minutes: 5, label: 'Intervalo', kind: 'intervalo' },
+          { minutes: 45, label: 'Escrita em aula', kind: 'aula' },
+          { minutes: 15, label: 'Intervalo', kind: 'intervalo' },
+          { minutes: 60, label: 'Técnica de redação', kind: 'aula' },
+        ],
+        note: 'Uma vez por semana, com intervalos planejados para o descanso.',
+      },
+      pillars: [
+        {
+          title: 'Humanidades',
+          text: 'Dois professores em sala, com metodologia ativa: história, filosofia, sociologia, atualidades e geopolítica.',
+        },
+        {
+          title: 'Escrita em aula',
+          text: 'Momento prático de elaboração do projeto de texto e do rascunho, com o professor por perto.',
+        },
+        {
+          title: 'Técnica de redação',
+          text: 'Aspectos estruturais, estratégias argumentativas, perfis das bancas e exercícios de argumentação.',
+        },
+        {
+          title: 'Correções semanais',
+          text: 'Feitas por especialistas, em formato escrito ou em áudio, toda semana.',
+        },
+        {
+          title: 'Tutorias individuais',
+          text: 'Aulas de trinta minutos, um a um, dedicadas à correção da sua redação.',
+        },
+        {
+          title: 'Material autoral',
+          text: 'Recursos pedagógicos próprios, que reforçam o repertório e a técnica de escrita.',
+        },
+      ],
+      genres: {
+        kicker: 'Gêneros textuais',
+        title: 'O que se escreve durante o curso',
+        items: [
+          'Artigo de opinião',
+          'Carta argumentativa',
+          'Conto',
+          'Crônica',
+          'Depoimento',
+          'Dissertação-argumentativa',
+          'Resumo ou síntese',
+          'Discurso',
+          'Manifesto',
+          'Abaixo-assinado',
+        ],
+      },
+      boards: {
+        kicker: 'Bancas estudadas',
+        title: 'Os perfis de prova que o curso estuda',
+        items: [
+          'EDITORIAL',
+          'ENEM',
+          'FDF',
+          'FUVEST',
+          'UEMG',
+          'UFU',
+          'UFMG',
+          'UNICAMP',
+          'UNI-FACEF',
+          'UNIFRAN',
+          'VUNESP',
+        ],
+        // Deixa inequívoco: é conteúdo de estudo, nunca relação de aprovações.
+        note: 'Esta é a relação de bancas cujos perfis, propostas e critérios são trabalhados em aula. Não se trata de relação de aprovações.',
+      },
+      classes: {
+        kicker: 'Turmas',
+        title: 'Horários de 2026',
+        items: [
+          { day: 'Quartas-feiras', time: 'das 14h às 17h' },
+          { day: 'Quintas-feiras', time: 'das 15h às 18h' },
+        ],
+        // MANUTENÇÃO ANUAL: turmas e horários mudam a cada ano letivo.
+        note: 'Turmas do ano letivo de 2026. Os horários são revistos a cada ano.',
+      },
+      general: {
+        kicker: 'Aspecto geral',
+        items: [
+          'Uma vez por semana',
+          'Três horas de permanência',
+          'Turmas reduzidas',
+          'Correções semanais',
+          'Simulados quinzenais',
+          'Intervalos planejados para o descanso',
+          'Aulas verticais',
+          'Foco no eixo temático da semana',
+        ],
+      },
+      primary_cta: {
+        type: 'whatsapp',
+        label: 'Quero conhecer o curso',
+        value: '5516999866530',
+        message: 'Olá! Gostaria de saber mais sobre o curso de Redação e Humanidades da Ave, Palavra!',
+      },
+    },
+    miguilim: {
+      visible: true,
+      eyebrow: 'Curso Miguilim',
+      title: 'O mundo não mudou.\nMudou o',
+      title_highlight: 'jeito de olhar.',
+      title_highlight_inline: false,
+      // DIVERGÊNCIA A CONFIRMAR: o PDF institucional diz 7º e 8º ano; o áudio
+      // do founder diz "sexto, sétimo, oitavo". Vale o PDF até confirmarem.
+      audience: '7º e 8º ano',
+      story_html: 'Você conhece a história do Miguilim? Ele é um personagem de um conto de Guimarães Rosa. Era um menino do sertão que via o mundo meio embaçado e confuso. Até o dia em que colocou óculos pela primeira vez e descobriu que as árvores, os pássaros e as pessoas tinham <strong>contornos definidos, cores vivas e detalhes incríveis</strong>.',
+      pull_quote: 'O Curso Miguilim é exatamente esse par de óculos.',
+      lens_phrase: 'contornos definidos, cores vivas e detalhes incríveis',
+      groups: [
+        {
+          name: 'Turma Alfa',
+          subtitle: 'Cultura e Classes Gramaticais',
+          schedule: 'Segundas-feiras, das 14h às 15h30',
+          items: [
+            {
+              title: 'Bússola',
+              text: 'Textos, músicas e vídeos oferecidos e compreendidos ao longo do curso. É o acesso à cultura.',
+            },
+            {
+              title: 'Ferramentas de Navegação',
+              text: 'Teoria, identificação, classificação e análise das dez classes gramaticais.',
+            },
+          ],
+        },
+        {
+          name: 'Turma Beta',
+          subtitle: 'Compreensão, Interpretação e Redação',
+          schedule: 'Quartas-feiras, das 15h30 às 17h',
+          items: [
+            {
+              title: 'Desmontar para entender',
+              text: 'Frases, músicas e textos desmontados como peças de Lego, para compreender como cada parte se encaixa.',
+            },
+            {
+              title: 'O Laboratório da Língua',
+              text: 'Momentos quinzenais de estruturação e planejamento de textos.',
+            },
+          ],
+        },
+      ],
+      general: {
+        kicker: 'Aspecto geral',
+        items: [
+          'Uma vez por semana',
+          'Uma hora e meia de aula',
+          'Material autoral',
+          'Aspecto teórico e prático',
+          'Ludicidade e muita cultura',
+          'Intervalos planejados para o descanso',
+          'Interação constante entre aluno e conteúdo',
+        ],
+      },
+      signature: 'Absolutamente satisfatório, interativo, ave.',
+      primary_cta: {
+        type: 'whatsapp',
+        label: 'Quero conhecer o Miguilim',
+        value: '5516999866530',
+        message: 'Olá! Gostaria de saber mais sobre o Curso Miguilim da Ave, Palavra!',
+      },
+    },
+    services: {
+      visible: true,
+      eyebrow: 'Outros serviços',
+      title: 'A escola também atende',
+      title_highlight: 'empresas e equipes.',
+      title_highlight_inline: true,
+      lead: 'A mesma metodologia ativa, aplicada fora da sala de aula regular.',
+      featured: [
+        {
+          title: 'Português empresarial',
+          lead: 'O português correto é peça fundamental para todo negócio que deseja ter uma comunicação de qualidade e eficiente.',
+          blocks: [
+            {
+              title: 'O que é',
+              text: 'A capacitação atende necessidades de lideranças e funcionários, estruturando a base da Língua Portuguesa, corrigindo vícios da oralidade, otimizando a comunicação no ambiente de trabalho e melhorando a produção de textos empresariais.',
+            },
+            {
+              title: 'Para quem',
+              text: 'Profissionais de todas as áreas e níveis hierárquicos da empresa que necessitem aprimorar a comunicação oral e escrita para transmitir ideias e mensagens importantes.',
+            },
+            {
+              title: 'Como funciona',
+              text: 'Abordagem ativa, com participação significativa dos alunos, em dois segmentos: aulas presenciais coletivas e tutorias individuais com cada participante.',
+            },
+            {
+              title: 'O que muda',
+              text: 'Treinamentos que ampliam a experiência profissional, aumentam a produtividade e potencializam os níveis de serviço.',
+            },
+          ],
+        },
+        {
+          title: 'SIPAT\u2019s',
+          lead: 'Programação própria para a semana interna de prevenção de acidentes, em três frentes.',
+          blocks: [
+            {
+              title: 'Interpessoal',
+              text: 'Contação de histórias sobre diversidade, respeito, trabalho em equipe, assédio e comunicação; caça ao tesouro empresarial personalizada; gincana empresarial.',
+            },
+            {
+              title: 'Sustentabilidade',
+              text: 'Práticas ESG, palestras e oficinas sobre responsabilidade ambiental e comunitária.',
+            },
+            {
+              title: 'Saúde',
+              text: 'Segurança e medicina do trabalho, exercícios laborais e bem-estar: nutrição, saúde mental e lazer.',
+            },
+          ],
+        },
+      ],
+      // Esta lista aceita itens novos sem redesenho — eventos culturais e o que
+      // mais vier entram aqui.
+      others: {
+        kicker: 'Também oferecemos',
+        items: [
+          'Acompanhamento escolar',
+          'Acompanhamento profissional',
+          'Aula particular',
+          'Contação de histórias',
+          'Eventos culturais',
+          'Formações docentes',
+          'Palestras',
+          'Treinamentos',
+        ],
+      },
+      primary_cta: {
+        type: 'whatsapp',
+        label: 'Falar sobre treinamentos',
+        value: '5516999866530',
+        message: 'Olá! Gostaria de saber mais sobre os treinamentos e o português empresarial da Ave, Palavra!',
+      },
+    },
     enroll: {
       perks: [
         'Aulas presenciais coletivas',
@@ -169,12 +434,20 @@ export const CONTEUDO: SiteContent = {
         message: null,
       },
       contact_kicker: 'Fale com a gente',
+      // Única foto do lugar físico que temos, recortada de dentro do post de
+      // Instagram (a arte não entra; a foto, sim).
+      place: {
+        image_url: '/img/fachada.webp',
+        alt: 'Fachada da Ave, Palavra! na Rua Torquato Caleiro: muro azul, letreiro turquesa com o logotipo da escola e calçada de pedras portuguesas',
+        kicker: 'A escola',
+        text: 'R. Torquato Caleiro, 725 — Vila Nicácio, Franca/SP. Aulas presenciais, em sala, desde 2010.',
+      },
       title_highlight: 'a sua.',
       title_highlight_inline: true,
     },
     footer: {
-      about: 'Cursos livres de português, redação e humanidades, e formação para empresas. Desde julho de 2010.',
-      email: 'atendimento@avepalavraecia.com',
+      about: 'Redação, português e humanidades para quem está atravessando o vestibular, e formação para empresas. Desde julho de 2010, em Franca.',
+      email: 'atendimento@avepalavraecia.com.br',
       hours: 'Seg. a sex. · 9h às 18h',
       phones: [
         '(16) 99986-6530',
@@ -191,8 +464,8 @@ export const CONTEUDO: SiteContent = {
           label: 'Facebook · AvePalavraFranca',
         },
         {
-          url: 'https://avepalavraecia.com.br/',
-          label: 'Português Empresarial',
+          url: '#servicos',
+          label: 'Português empresarial e SIPAT\u2019s',
         },
       ],
       visible: true,
@@ -236,6 +509,17 @@ export const CONTEUDO: SiteContent = {
         video_url: null,
         external_url: 'https://www.instagram.com/ave_palavra/',
       },
+      // A grade só aparece quando `members` tiver gente. Enquanto os nomes e as
+      // disciplinas não chegarem do founder, ela fica fora do ar: publicar foto
+      // de professor sem nome é pior do que não publicar, e nome inventado
+      // não é opção. As cinco fotos já estão tratadas em /img/professores/.
+      team: {
+        visible: true,
+        kicker: 'Quem ensina',
+        title: 'Os professores da casa',
+        lead: 'Humanidades com dois professores em sala, correções por especialistas e tutorias um a um.',
+        members: [],
+      },
       testimonials: [
         {
           name: '',
@@ -256,6 +540,12 @@ export const CONTEUDO: SiteContent = {
       title_highlight_inline: false,
     },
     method: {
+      // Copy do post de setembro/2026, reescrita na tipografia do site em vez
+      // de entrar como arte de feed colada.
+      opening: {
+        quote: 'Não ensinamos redação como fórmula pronta.',
+        text_html: 'Estrutura importa. Mas aprender a escrever também é aprender a <strong>escolher, relacionar, argumentar</strong> e construir um <strong>texto próprio</strong>.',
+      },
       steps: [
         {
           n: '01',
@@ -279,6 +569,18 @@ export const CONTEUDO: SiteContent = {
       title: 'Aprender junto.\nEvoluir',
       eyebrow: 'Nosso método',
       visible: true,
+      cycle: {
+        kicker: 'O ciclo da semana',
+        title: 'Por aqui, o processo passa por',
+        steps: [
+          { label: 'Aula', text: 'Humanidades, escrita e técnica, no mesmo encontro.' },
+          { label: 'Produção', text: 'Texto escrito em sala, no formato da prova.' },
+          { label: 'Correção', text: 'Semanal, por especialistas, escrita ou em áudio.' },
+          { label: 'Repertório', text: 'Guia cultural e material autoral da escola.' },
+          { label: 'Acompanhamento', text: 'Tutoria individual para o próximo passo.' },
+        ],
+        note: 'Tudo isso respeitando o caminho de cada aluno.',
+      },
       correction_demo: {
         theme: 'os desafios da leitura na era digital',
         scores: [
@@ -398,6 +700,9 @@ export const CONTEUDO: SiteContent = {
         // reais; basta preencher `items` para o bloco voltar.
         placeholder_when_empty: false,
       },
+      // DESLIGADA em out/2026. Com o 87% real no ar, dois blocos ilustrativos
+      // ao lado de um dado real competiam entre si e enfraqueciam o real. O
+      // conteúdo fica aqui: basta `visible: true` para o gráfico voltar.
       evolution: {
         title: 'De 560 a 960 em 5 redações',
         kicker: 'Evolução de um aluno',
@@ -408,8 +713,19 @@ export const CONTEUDO: SiteContent = {
           880,
           960,
         ],
-        visible: true,
+        visible: false,
         is_example: true,
+      },
+      // Primeiro dado REAL e numérico do site — por isso sem selo de exemplo.
+      // TODO (founder): confirmar o recorte (qual turma, qual período, medido
+      // como) e reescrever `source` com ele. Número grande sem recorte
+      // envelhece mal.
+      real_stat: {
+        visible: true,
+        kicker: 'Resultado do curso',
+        value: '87%',
+        label: 'dos alunos com nota maior que 800',
+        source: 'Dado divulgado pela escola no material institucional do curso de Redação e Humanidades de 2026.',
       },
       featured_essay: {
         score: 960,
