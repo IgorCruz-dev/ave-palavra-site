@@ -588,6 +588,287 @@ html:has([data-org-site]) {
   @media (max-width:1100px){
     .nav__enter{display:none}
   }
+
+  /* ---------- card de dado REAL (sem selo de exemplo) ----------
+     Contraponto deliberado aos blocos ilustrativos: número grande, e logo
+     abaixo de onde ele veio. A fonte é parte do dado, não rodapé. */
+  .card--real{background:linear-gradient(160deg,#fff,#f4fbfd);border:0;box-shadow:0 1px 0 #fff inset,0 30px 60px -28px rgba(20,151,184,.45),0 0 0 1px rgba(43,196,216,.35)}
+  .real__v{font-family:var(--serif);font-size:clamp(58px,6.4vw,82px);font-weight:600;line-height:.95;letter-spacing:-.04em;color:var(--teal-2);margin:10px 0 2px;font-variation-settings:"opsz" 144,"SOFT" 30}
+  .real__l{font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;max-width:260px}
+  .real__src{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--muted)}
+
+  /* =====================================================================
+   * TEMPO DE TRAVESSIA — a assinatura de 2026 e o curso de Redação e
+   * Humanidades. Fundo claro com o ciano do material institucional, e a arte
+   * da ponte como marca d'água (mesmo registro da ave gigante do herói).
+   * ===================================================================== */
+  .trav{position:relative;padding:150px 0 140px;overflow:hidden;background:radial-gradient(80% 60% at 20% 0%,rgba(43,196,216,.18),transparent 70%),linear-gradient(180deg,var(--paper),#e9f7fb 45%,var(--mist))}
+  .trav__bridge{position:absolute;left:50%;top:40px;width:min(1500px,118%);margin-left:min(-750px,-59%);opacity:.14;pointer-events:none;z-index:0}
+  .trav .wrap{position:relative;z-index:1}
+  .trav__head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:end;margin-bottom:76px}
+  .trav__head .sec-head{margin-bottom:0;max-width:none}
+
+  /* epígrafe de Guimarães Rosa */
+  .epigraph{position:relative;padding:4px 0 4px 26px;border-left:2px solid var(--teal-2)}
+  .epigraph p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,25px);line-height:1.4;color:var(--navy);font-variation-settings:"opsz" 48,"SOFT" 60,"WONK" 1}
+  .epigraph cite{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* linha do tempo das 3h de permanência */
+  .tl{background:#fff;border-radius:var(--r);padding:32px 34px 28px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 30px 60px -30px rgba(13,26,74,.3),0 0 0 1px var(--line)}
+  .tl__top{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:baseline;justify-content:space-between;margin-bottom:20px}
+  .tl__total{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+  .tl__bar{display:flex;gap:4px;height:58px;margin-bottom:18px}
+  .tl__seg{flex-grow:var(--min);flex-basis:0;min-width:16px;border-radius:9px;display:grid;place-items:center;padding:0 6px;overflow:hidden}
+  .tl__seg--aula{background:linear-gradient(160deg,var(--navy-2),var(--navy));box-shadow:0 10px 24px -12px rgba(28,48,110,.8)}
+  .tl__seg--intervalo{background:repeating-linear-gradient(135deg,var(--mist) 0 5px,#e2e9f4 5px 10px)}
+  .tl__seg b{font-family:var(--serif);font-size:19px;font-weight:600;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  .tl__seg--intervalo b{color:var(--muted);font-size:14px}
+  .tl__legend{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;border-top:1px solid var(--line);padding-top:18px}
+  .tl__legend li{display:flex;flex-direction:column;gap:3px}
+  .tl__legend i{width:26px;height:4px;border-radius:3px;background:var(--navy);margin-bottom:5px}
+  .tl__legend li.is-break i{background:#d6deec}
+  .tl__legend b{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.25}
+  .tl__legend span{font-size:12.5px;color:var(--muted);font-weight:600}
+  .tl__note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+  /* o que o curso trabalha, em seis frentes */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:70px}
+  .pillar{position:relative;background:#fff;border-radius:var(--r);padding:28px 26px 26px;box-shadow:0 24px 50px -32px rgba(13,26,74,.35),0 0 0 1px var(--line);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+  .pillar:hover{transform:translateY(-4px);box-shadow:0 34px 60px -30px rgba(13,26,74,.4),0 0 0 1px rgba(43,196,216,.4)}
+  .pillar__n{display:block;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--teal-2);letter-spacing:.04em;margin-bottom:10px}
+  .pillar h3{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+  .pillar p{font-size:15px;color:var(--muted);line-height:1.55}
+
+  /* gêneros, bancas, turmas e aspecto geral */
+  .trav__cols{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:70px;align-items:start}
+  .panel{background:#fff;border-radius:var(--r);padding:30px 32px;box-shadow:0 24px 50px -32px rgba(13,26,74,.35),0 0 0 1px var(--line)}
+  .panel+.panel{margin-top:22px}
+  .panel__kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--teal-2)}
+  .panel__title{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin:6px 0 18px;line-height:1.15}
+  .panel__note{margin-top:16px;font-size:13.5px;line-height:1.5;color:var(--muted);padding-top:14px;border-top:1px solid var(--line)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:9px}
+  .tag{display:inline-flex;align-items:center;padding:9px 15px;border-radius:999px;background:var(--mist);font-weight:700;font-size:14px;color:var(--navy);border:1px solid rgba(28,48,110,.1)}
+  .tag--board{font-size:13px;letter-spacing:.04em;background:#fff;border-color:rgba(28,48,110,.22);color:var(--navy)}
+  .classes li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line)}
+  .classes li:first-child{border-top:0;padding-top:0}
+  .classes b{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink)}
+  .classes span{font-size:14.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+  .ticks{display:grid;gap:11px}
+  .ticks li{display:flex;align-items:flex-start;gap:11px;font-size:15px;font-weight:600;color:var(--text)}
+  .ticks .tick{flex:none;width:19px;height:19px;margin-top:1px}
+  .ticks .tick::after{left:6px;top:3px;width:5px;height:9.5px;border-width:0 2px 2px 0}
+  .trav__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:52px}
+
+  /* =====================================================================
+   * MIGUILIM — a ilha quente. Mesma tipografia, mesmas primitivas de card e
+   * botão, mesmo ritmo de espaçamento; só o fundo muda. Os tokens quentes
+   * vivem AQUI, no escopo da seção, e não entram no TEMA do site.
+   * ===================================================================== */
+  .mig{--cream:#fff8ec;--rose:#ffeaf0;--peach:#ffe2c9;--mig-ink:var(--ink);
+       position:relative;padding:150px 0 140px;overflow:hidden;color:var(--mig-ink);
+       background:radial-gradient(70% 55% at 85% 8%,rgba(255,214,228,.85),transparent 68%),linear-gradient(145deg,var(--cream),#fff1e4 42%,var(--rose))}
+  .mig::before{content:"";position:absolute;left:-180px;bottom:-220px;width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(246,212,74,.3),transparent);pointer-events:none}
+  .mig .wrap{position:relative;z-index:1}
+  .mig .sec-title{color:var(--ink)}
+  .mig .sec-title em{color:#c2566f}
+  .mig .eyebrow{color:#b4455f}
+  .mig .dot{background:#f0a0b4;box-shadow:0 0 0 4px rgba(240,160,180,.25),0 0 18px rgba(240,160,180,.8)}
+  .mig__head{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;margin-bottom:14px}
+  .mig__age{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(28,48,110,.14);font-weight:800;font-size:13.5px;color:var(--navy)}
+  .mig__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;margin-top:10px}
+  .mig__story{font-size:17.5px;line-height:1.7;color:#4a4256;max-width:520px}
+  .mig__story strong{color:var(--ink);font-weight:700}
+  .mig__quote{font-family:var(--serif);font-size:clamp(26px,2.8vw,36px);line-height:1.2;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-top:26px;font-variation-settings:"opsz" 72,"SOFT" 40}
+  .mig__quote em{font-style:italic;color:#c2566f;font-variation-settings:"opsz" 72,"SOFT" 100,"WONK" 1}
+
+  /* A lente: a frase nasce embaçada e entra em foco sob os óculos. O recorte
+     nítido e a armação andam juntos, e a frase de dentro anda ao contrário —
+     tudo em `transform`, que o compositor resolve sozinho. */
+  .lens-stage{position:relative;display:grid;place-items:center;min-height:300px;padding:20px;border-radius:28px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);box-shadow:0 30px 60px -34px rgba(90,60,80,.4);overflow:hidden;--lens-travel:150px;--lens-size:190px}
+  .lens-phrase{font-family:var(--serif);font-size:clamp(23px,2.4vw,31px);line-height:1.34;font-weight:600;letter-spacing:-.015em;color:var(--ink);text-align:center;max-width:430px;font-variation-settings:"opsz" 72,"SOFT" 40}
+  .lens-stage__blur{filter:blur(5px);opacity:.45}
+  /* A armação inteira (lente + haste + ponte) é UM elemento que anda; só a
+     cópia nítida de dentro anda ao contrário. Dois `transform`, nada mais. */
+  .lens-rig{position:absolute;left:50%;top:50%;width:var(--lens-size);height:var(--lens-size);margin-left:calc(var(--lens-size)/-2);margin-top:calc(var(--lens-size)/-2);animation:ops-lens 11s ease-in-out infinite;will-change:transform;pointer-events:none}
+  .lens{position:absolute;inset:0;border-radius:50%;overflow:hidden;border:3px solid var(--ink);background:rgba(255,255,255,.82);box-shadow:0 0 0 7px rgba(255,255,255,.55),0 18px 36px -14px rgba(90,60,80,.5),0 2px 0 rgba(255,255,255,.9) inset}
+  .lens__inner{position:absolute;inset:0;animation:ops-lens-i 11s ease-in-out infinite;will-change:transform}
+  /* A cópia nítida é MAIS LARGA que a lente de propósito (é a frase inteira,
+     recortada pelo círculo). Grid não serve aqui: item que transborda o
+     contêiner o Chrome alinha ao início, não ao centro, e o texto nítido sai
+     do registro com o embaçado. Centralização explícita resolve. */
+  .lens__inner .lens-phrase{position:absolute;top:50%;left:50%;width:var(--phrase-w,430px);transform:translate(-50%,-50%)}
+  .lens__arm{position:absolute;top:50%;left:100%;width:72px;height:2.5px;margin-top:-1px;background:var(--ink);border-radius:2px;transform-origin:left center;transform:rotate(-7deg)}
+  .lens__bridge{position:absolute;top:50%;right:100%;width:34px;height:2.5px;margin-top:-1px;background:var(--ink);border-radius:2px}
+
+  /* turmas Alfa e Beta */
+  .mig__groups{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:76px}
+  .mgroup{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:var(--r);padding:32px 32px 30px;box-shadow:0 26px 54px -34px rgba(90,60,80,.45);transition:transform .5s var(--ease)}
+  .mgroup:hover{transform:translateY(-4px)}
+  .mgroup__top{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid rgba(28,48,110,.1);margin-bottom:20px}
+  .mgroup__name{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+  .mgroup__sub{font-size:14.5px;font-weight:700;color:#b4455f}
+  .mgroup__when{flex-basis:100%;font-size:14px;color:var(--muted);font-weight:600}
+  .mgroup__item+.mgroup__item{margin-top:18px}
+  .mgroup__item h4{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);margin-bottom:5px}
+  .mgroup__item p{font-size:15px;line-height:1.55;color:#5c5367}
+  .mig__foot{display:flex;flex-wrap:wrap;gap:30px 40px;align-items:center;justify-content:space-between;margin-top:56px;padding-top:34px;border-top:1px solid rgba(28,48,110,.12)}
+  .mig__sign{font-family:var(--hand);font-size:30px;font-weight:700;color:#b4455f;max-width:360px;line-height:1.2}
+  .mig .tag{background:rgba(255,255,255,.7);border-color:rgba(28,48,110,.12)}
+  .mig .btn--teal{color:#04223a}
+
+  /* =====================================================================
+   * OUTROS SERVIÇOS — faixa compacta. Presente e encontrável, sem competir
+   * com a redação: padding menor, título menor, sem imagem.
+   * ===================================================================== */
+  .svc{position:relative;padding:96px 0 92px;background:linear-gradient(180deg,var(--ink),var(--night));color:#fff;overflow:hidden}
+  .svc__glow{position:absolute;width:760px;height:520px;left:-240px;top:-160px;border-radius:50%;background:radial-gradient(closest-side,rgba(43,196,216,.22),transparent);filter:blur(30px);pointer-events:none}
+  .svc .wrap{position:relative;z-index:1}
+  .svc__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:46px}
+  .svc__title{font-family:var(--serif);font-weight:600;font-size:clamp(32px,3.4vw,46px);line-height:1.06;letter-spacing:-.025em;color:#fff;margin:14px 0 0;font-variation-settings:"opsz" 96,"SOFT" 30}
+  .svc__title em{color:var(--teal);font-weight:500;font-variation-settings:"opsz" 96,"SOFT" 100,"WONK" 1}
+  .svc__lead{font-size:16.5px;color:rgba(232,240,255,.72);max-width:420px}
+  .svc__cards{display:grid;grid-template-columns:1.25fr .9fr;gap:20px;align-items:start}
+  .svc-card{padding:32px 32px 30px;border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.13);transition:border-color .5s}
+  .svc-card:hover{border-color:rgba(43,196,216,.45)}
+  .svc-card h3{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-.02em;color:#fff}
+  .svc-card__lead{font-size:15.5px;line-height:1.6;color:rgba(232,240,255,.78);margin:10px 0 22px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .svc-card__blocks{display:grid;gap:16px}
+  .svc-card--wide .svc-card__blocks{grid-template-columns:1fr 1fr;gap:18px 26px}
+  .svc-card__blocks h4{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--teal);margin-bottom:5px}
+  .svc-card__blocks p{font-size:14.5px;line-height:1.55;color:rgba(232,240,255,.72)}
+  .svc__others{margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+  .svc__others .panel__kicker{color:var(--sky)}
+  .svc__others .tagrow{margin-top:14px}
+  .svc .tag{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:rgba(232,240,255,.9);font-weight:600}
+  .svc__cta{margin-top:34px}
+
+  /* =====================================================================
+   * EQUIPE — grade dentro de "Por dentro". Só aparece com `members`.
+   * ===================================================================== */
+  .team{margin-top:84px;padding-top:56px;border-top:1px solid var(--line)}
+  .team__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
+  .tmember{text-align:left}
+  .tmember__ph{position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--ink));box-shadow:0 22px 44px -28px rgba(13,26,74,.55)}
+  .tmember__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+  .tmember b{display:block;margin-top:14px;font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
+  .tmember span{display:block;margin-top:3px;font-size:13.5px;color:var(--muted);font-weight:600}
+
+  /* =====================================================================
+   * CICLO DA SEMANA — corrente horizontal sob as três etapas do método.
+   * ===================================================================== */
+  .cycle{margin-top:26px;padding:30px 32px 28px;border-radius:var(--r);background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12)}
+  .cycle__top{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between;margin-bottom:22px}
+  .cycle__title{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:-.02em;color:#fff}
+  .cycle__note{font-size:14px;color:rgba(232,240,255,.62)}
+  .cycle__steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .cstep{position:relative;padding:18px 16px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09)}
+  .cstep::after{content:"";position:absolute;right:-7px;top:50%;width:10px;height:10px;margin-top:-5px;border-right:2px solid rgba(43,196,216,.5);border-top:2px solid rgba(43,196,216,.5);transform:rotate(45deg);z-index:1}
+  .cstep:last-child::after{display:none}
+  .cstep b{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--teal);margin-bottom:7px}
+  .cstep span{font-size:14px;line-height:1.5;color:rgba(232,240,255,.75)}
+
+  /* abertura do método: a posição da escola sobre ensinar redação */
+  .mopen{max-width:680px;margin:0 0 58px}
+  .mopen__q{font-family:var(--serif);font-size:clamp(28px,3.1vw,42px);line-height:1.12;font-weight:600;letter-spacing:-.025em;color:#fff;font-variation-settings:"opsz" 96,"SOFT" 40}
+  .mopen__t{margin-top:16px;font-size:17.5px;line-height:1.65;color:rgba(232,240,255,.74)}
+  .mopen__t strong{color:#fff;font-weight:700}
+
+  /* =====================================================================
+   * A ESCOLA — faixa com a fachada, abrindo as matrículas.
+   * ===================================================================== */
+  .place{position:relative;width:min(1320px,100%);margin:0 auto 44px;border-radius:32px;overflow:hidden;box-shadow:0 40px 80px -46px rgba(13,26,74,.6)}
+  .place img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;aspect-ratio:21/8}
+  .place__cap{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;padding:58px 40px 28px;color:#fff;background:linear-gradient(180deg,transparent,rgba(7,15,46,.82))}
+  .place__k{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--sky)}
+  .place__t{font-size:16px;font-weight:600;color:rgba(255,255,255,.94)}
+
+  /* =====================================================================
+   * Honestidade do card de vídeo: enquanto não houver arquivo, o clique leva
+   * ao Instagram — e o card precisa dizer isso.
+   * ===================================================================== */
+  .ext-badge{position:absolute;left:22px;top:22px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;background:rgba(7,15,46,.5);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px)}
+  .ext-badge svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+  .reel .ext-badge{left:12px;top:12px;padding:6px 10px;font-size:11px}
+
+  /* pausa as animações em laço fora da viewport, como no herói */
+  .mig.is-offscreen .lens-rig,
+  .mig.is-offscreen .lens__inner{animation-play-state:paused}
+
+  /* ================= TABLET ≤1100 ================= */
+  @media (max-width:1100px){
+    .trav{padding:110px 0 100px}
+    .trav__head{grid-template-columns:1fr;gap:34px;margin-bottom:54px;align-items:start}
+    .trav__bridge{top:20px;opacity:.1}
+    .pillars{grid-template-columns:1fr 1fr;margin-top:50px}
+    .trav__cols{grid-template-columns:1fr;gap:22px;margin-top:50px}
+    .tl__legend{grid-template-columns:repeat(3,1fr)}
+    .mig{padding:110px 0 100px}
+    .mig__grid{grid-template-columns:1fr;gap:44px}
+    .mig__story{max-width:none}
+    .mig__groups{grid-template-columns:1fr;margin-top:54px}
+    .svc{padding:82px 0 78px}
+    .svc__head{grid-template-columns:1fr;gap:20px;align-items:start}
+    .svc__cards{grid-template-columns:1fr}
+    .svc-card--wide .svc-card__blocks{grid-template-columns:1fr 1fr}
+    .cycle__steps{grid-template-columns:repeat(2,1fr);gap:12px}
+    .cstep::after{display:none}
+    .team__grid{grid-template-columns:repeat(3,1fr)}
+    .place img{aspect-ratio:16/8}
+    .place__cap{padding:48px 30px 24px}
+  }
+
+  /* ================= MOBILE ≤600 ================= */
+  @media (max-width:600px){
+    .trav{padding:84px 0 78px}
+    .trav__bridge{width:170%;margin-left:-85%;top:0;opacity:.09}
+    .trav__head{margin-bottom:40px}
+    .epigraph{padding-left:18px}
+    .tl{padding:24px 20px 22px}
+    .tl__bar{height:46px;gap:3px}
+    .tl__seg b{display:none}
+    .tl__legend{grid-template-columns:1fr 1fr;gap:14px 12px}
+    .tl__total{font-size:21px}
+    .pillars{grid-template-columns:1fr;gap:14px;margin-top:40px}
+    .pillar{padding:24px 22px}
+    .trav__cols{margin-top:40px}
+    .panel{padding:24px 22px}
+    .panel__title{font-size:21px}
+    .trav__cta{margin-top:36px}
+    .trav__cta .btn{width:100%;justify-content:center}
+
+    .mig{padding:84px 0 78px}
+    .mig__grid{gap:34px;margin-top:4px}
+    .mig__story{font-size:16.5px}
+    .lens-stage{min-height:250px;--lens-size:150px;--lens-travel:88px;border-radius:22px}
+    .lens-phrase{max-width:280px}
+    .lens-stage{--phrase-w:280px}
+    .lens__arm{width:46px}
+    .mig__groups{gap:14px;margin-top:44px}
+    .mgroup{padding:26px 22px 24px}
+    .mgroup__name{font-size:24px}
+    .mig__foot{margin-top:40px;padding-top:28px;gap:24px}
+    .mig__sign{font-size:25px;max-width:none}
+    .mig__foot .btn{width:100%;justify-content:center}
+
+    .svc{padding:70px 0 66px}
+    .svc__cards{gap:14px}
+    .svc-card{padding:26px 22px 24px}
+    .svc-card h3{font-size:24px}
+    .svc-card--wide .svc-card__blocks{grid-template-columns:1fr;gap:16px}
+    .svc__cta .btn{width:100%;justify-content:center}
+
+    .mopen{margin-bottom:40px}
+    .cycle{padding:24px 20px 22px}
+    .cycle__steps{grid-template-columns:1fr;gap:10px}
+    .team{margin-top:56px;padding-top:40px}
+    .team__grid{grid-template-columns:1fr 1fr;gap:14px}
+    .tmember b{font-size:17px}
+
+    .place{border-radius:20px;margin-bottom:28px}
+    .place img{aspect-ratio:4/3}
+    .place__cap{padding:40px 20px 20px;gap:4px 14px}
+    .place__t{font-size:14.5px}
+  }
 }
 
 /* Sem movimento: desliga flutuação, parallax, tilt, o "chão" animado e as
@@ -611,6 +892,10 @@ html:has([data-org-site]) {
     translate: none !important;
   }
   [data-org-site] .evo__line { stroke-dashoffset: 0 !important; }
+  /* A lente fica parada no centro da frase: sem transform, que é o estado
+     base do CSS — o efeito continua legível, só não se move. */
+  [data-org-site] .lens-rig,
+  [data-org-site] .lens__inner { animation: none !important; }
   [data-org-site] .reveal { opacity: 1 !important; transform: none !important; }
   html, body { margin: 0; padding: 0; }
 
@@ -618,3 +903,9 @@ html:has([data-org-site]) { scroll-behavior: auto; }
 }
 
 @keyframes ops-menu-in { from { opacity: 0 } to { opacity: 1 } }
+
+/* A lente e a frase de dentro andam em sentidos opostos, na mesma distância,
+   para o texto nítido ficar sempre registrado com o texto embaçado de baixo.
+   Só `transform`: o compositor resolve, sem re-rasterizar o blur a cada quadro. */
+@keyframes ops-lens   { 0%,100% { transform: translateX(calc(var(--lens-travel) * -1)) } 50% { transform: translateX(var(--lens-travel)) } }
+@keyframes ops-lens-i { 0%,100% { transform: translateX(var(--lens-travel)) } 50% { transform: translateX(calc(var(--lens-travel) * -1)) } }
