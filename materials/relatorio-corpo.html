@@ -1,0 +1,293 @@
+<title>Travessia — Entrega do Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;800&display=swap">
+<style>
+  :root{
+    --ink:#0d1a4a; --body:#2b3558; --muted:#5f6b8c; --accent:#0f7489;
+    --rule:rgba(13,26,74,.13); --ground:#fbfaf6; --card:#ffffff;
+    --warm:#9a6b00; --warm-bg:#fff8e2; --warm-rule:#e8cf8a;
+    --good:#1a6b45; --good-bg:#e6f5ec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eef2fb; --body:#c6cee6; --muted:#8f9cbd; --accent:#5fd3e8;
+      --rule:rgba(238,244,251,.16); --ground:#0d1330; --card:rgba(255,255,255,.045);
+      --warm:#f2cd6b; --warm-bg:rgba(242,205,107,.09); --warm-rule:rgba(242,205,107,.32);
+      --good:#6ddba4; --good-bg:rgba(109,219,164,.1);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eef2fb; --body:#c6cee6; --muted:#8f9cbd; --accent:#5fd3e8;
+    --rule:rgba(238,244,251,.16); --ground:#0d1330; --card:rgba(255,255,255,.045);
+    --warm:#f2cd6b; --warm-bg:rgba(242,205,107,.09); --warm-rule:rgba(242,205,107,.32);
+    --good:#6ddba4; --good-bg:rgba(109,219,164,.1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       font-size:16.5px;line-height:1.68;color:var(--body);background:var(--ground);
+       padding:30px 20px 90px;-webkit-text-size-adjust:100%}
+  main{max-width:680px;margin:0 auto}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--ink);text-wrap:balance}
+  h1{font-weight:600;font-size:clamp(30px,7vw,42px);line-height:1.08;letter-spacing:-.025em}
+  .kicker{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;
+          color:var(--accent);margin-bottom:12px}
+  .lede{margin-top:14px;font-size:18px;color:var(--muted)}
+  header{padding-bottom:28px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+  h2{font-weight:600;font-size:clamp(23px,5vw,27px);letter-spacing:-.02em;
+     margin:46px 0 14px;padding-top:26px;border-top:1px solid var(--rule)}
+  h3{font-weight:600;font-size:19px;letter-spacing:-.015em;margin:26px 0 6px}
+  p{margin:11px 0}
+  strong{color:var(--ink);font-weight:700}
+  ul{margin:12px 0;padding-left:0;list-style:none}
+  li{position:relative;padding-left:20px;margin:8px 0}
+  li::before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;
+             border-radius:50%;background:var(--accent)}
+  .quote{margin:18px 0;padding:2px 0 2px 20px;border-left:2px solid var(--accent);
+         font-family:Fraunces,Georgia,serif;font-style:italic;font-size:18px;
+         line-height:1.45;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;
+        font-variant-numeric:tabular-nums}
+  .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th{text-align:left;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+     font-weight:800;color:var(--muted);padding:0 12px 9px 0;border-bottom:1px solid var(--rule)}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);color:var(--body)}
+  td:first-child{color:var(--ink);font-weight:600}
+  .ok{color:var(--good);font-weight:700}
+  .dn{color:var(--warm);font-weight:700}
+  .card{margin:18px 0;padding:20px 22px;background:var(--card);border:1px solid var(--rule);
+        border-radius:14px}
+  .pend{margin:14px 0;padding:18px 20px;background:var(--warm-bg);
+        border:1px solid var(--warm-rule);border-radius:14px}
+  .pend h3{margin-top:0;color:var(--ink)}
+  .pend .porque{margin-top:8px;font-size:14.5px;color:var(--muted)}
+  .pend .onde{margin-top:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+              font-size:12.5px;color:var(--muted);word-break:break-word}
+  .tagbar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .tag{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;
+       background:var(--card);border:1px solid var(--rule);color:var(--muted)}
+  footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--rule);
+         font-size:14px;color:var(--muted)}
+  a{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;color:var(--ink)}
+</style>
+
+<main>
+  <header>
+    <p class="kicker">Ave, Palavra! · Outubro de 2026</p>
+    <h1>O site, depois do material de 2026</h1>
+    <p class="lede">Três seções novas, quatro reformadas e as oito imagens tratadas.
+      O que o founder pediu, o que decidi por conta e o que ainda depende dele.</p>
+  </header>
+
+  <h2>O que mudou</h2>
+  <p>O site tinha seis seções. Agora tem nove, e o ritmo de fundos continua alternando
+    como antes — escuro, claro, escuro, claro, quente, claro, escuro, painel, rodapé.</p>
+
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Seção</th><th>O que aconteceu</th></tr></thead>
+    <tbody>
+      <tr><td>Herói</td><td>Intocado. Já era focado em redação.</td></tr>
+      <tr><td>Resultados</td><td>Entra o <strong>87% real</strong>; o gráfico de evolução ilustrativo sai de cena</td></tr>
+      <tr><td>Método</td><td>Ganha a abertura “fórmula pronta” e o ciclo da semana</td></tr>
+      <tr><td>Tempo de Travessia</td><td><strong>Nova.</strong> A campanha de 2026 e o curso de Redação e Humanidades</td></tr>
+      <tr><td>Miguilim</td><td><strong>Nova.</strong> Ilha de fundo quente, com a história dos óculos</td></tr>
+      <tr><td>Por dentro</td><td>Grade de professores pronta e desligada; cards de vídeo honestos</td></tr>
+      <tr><td>Outros serviços</td><td><strong>Nova.</strong> Empresarial, SIPAT’s e o resto, em faixa compacta</td></tr>
+      <tr><td>Matrículas</td><td>Ganha a faixa com a fachada da escola</td></tr>
+      <tr><td>Rodapé</td><td>Aponta para os serviços; e-mail corrigido</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>As decisões que valem discussão</h2>
+
+  <h3>1. O Miguilim virou ilha, não aba</h3>
+  <p>O material do Miguilim é pastel amarelo e rosa — o oposto do navy do site. Havia três
+    saídas: traduzir para a paleta do site, criar uma seção de fundo próprio, ou dar uma
+    página só dele. <strong>Escolhi a ilha</strong>, amarrada ao sistema em tudo menos no fundo:
+    mesma tipografia, mesmas primitivas de card e botão, mesmo ritmo de espaçamento. A paleta
+    quente não foi importada do PDF — ela nasce do amarelo que o site já usa nos botões, mais
+    um rosado que vive só dentro daquela seção e não entra no tema do site.</p>
+  <p><strong>E não usei abas</strong>, embora você tenha deixado em aberto. Duas razões. Você pediu
+    que o Miguilim tivesse presença, e aba esconde um dos cursos atrás de um clique — é o
+    contrário de presença. E o site inteiro é composição em rolagem: abas seriam o primeiro
+    controle de interface numa página feita de papel 3D, selo de nota e caneta-tinteiro.
+    Leria como se outra pessoa tivesse desenhado.</p>
+  <p>A peça central da seção é a história do menino que pôs óculos pela primeira vez. A frase
+    “contornos definidos, cores vivas e detalhes incríveis” aparece embaçada, e uma lente
+    atravessa o texto devagar deixando nítido só o que está sob ela. É a ideia do curso,
+    literal.</p>
+
+  <h3>2. “Tempo de Travessia” virou o fio que costura os dois cursos</h3>
+  <p>A assinatura de 2026 não existia no site. Ela resolve um problema real: sem ela, Miguilim
+    e Redação seriam duas seções soltas. Com ela, são dois momentos da mesma travessia — o
+    Miguilim no começo, a Redação no vestibular. A arte da ponte foi extraída dos PDFs a 600
+    dpi, com o fundo removido, e recolorida em navy.</p>
+  <p>Ela ficou em seção própria, e não no herói, de propósito: é campanha de 2026 e vai
+    envelhecer. Numa seção própria, sai com uma edição.</p>
+
+  <h3>3. O 87% real tomou o lugar de um número ilustrativo</h3>
+  <p>A seção Resultados tinha <strong>dois</strong> blocos ilustrativos (a nota 960 e a evolução
+    560→960) e nenhum dado real. Com o 87% disponível, dois ilustrativos ao lado de um real
+    competem e enfraquecem o real.</p>
+  <p>Então o gráfico de evolução passou a <code>visible: false</code> — continua no arquivo,
+    é uma linha para voltar — e o card do 87% ocupou o lugar dele, sem selo e com a fonte
+    declarada embaixo. A folha de redação com a nota 960 continua, com o selo de exemplo: ela
+    é a assinatura visual do site e demonstra a correção, que é outra coisa.</p>
+
+  <h3>4. As artes do Instagram não entraram; o que estava dentro delas, sim</h3>
+  <p>As três peças de feed têm tipografia que não é a do site e proporção de story. Coladas,
+    derrubariam o padrão. Em vez disso: <strong>as fotos</strong> foram recortadas de dentro delas
+    (a sala de aula e a fachada), e <strong>a copy</strong> foi reescrita na tipografia do site.
+    “Não ensinamos redação como fórmula pronta” abre o Método, e a lista
+    <em>aula · produção · correção · repertório · acompanhamento</em> virou o ciclo da semana,
+    logo abaixo das três etapas que já existiam.</p>
+  <p>A terceira foto — a aluna em close com a professora — <strong>não foi ao ar</strong>. É uma
+    menor de idade identificável em primeiro plano, e isso merece uma autorização explícita,
+    não uma suposição minha.</p>
+
+  <h2>A pergunta sobre os vídeos</h2>
+  <div class="quote">“Esses vídeos que você colocou é só a foto ou clicando vai abrir o vídeo do Instagram?”</div>
+  <p><strong>Hoje é só a capa, e o clique abre o perfil do Instagram</strong> — porque nunca chegaram
+    os arquivos dos reels. Você estava certo em desconfiar: o ícone de play sozinho prometia que
+    o vídeo tocaria ali mesmo. Corrigi isso: agora cada card que só leva para fora mostra um selo
+    “Instagram” visível, e o leitor de tela anuncia “Abrir no Instagram” em vez de “Assistir”.</p>
+  <p>A infraestrutura para tocar na própria página <strong>já existe</strong> e está testada. Quando
+    os arquivos chegarem, é pôr os <code>.mp4</code> em <code>public/videos/</code> e apontar
+    <code>video_url</code> para eles: o selo some sozinho e o vídeo passa a abrir em lightbox,
+    sem tirar ninguém do site.</p>
+
+  <h2>Medições</h2>
+  <p>Tudo medido no build de produção, servido estaticamente — antes e depois, do mesmo jeito.</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Métrica</th><th>Antes</th><th>Depois</th></tr></thead>
+    <tbody>
+      <tr><td>Acessibilidade</td><td>100</td><td class="ok">100</td></tr>
+      <tr><td>CLS</td><td>0,001</td><td class="ok">0,001</td></tr>
+      <tr><td>Boas práticas</td><td>96</td><td class="ok">96</td></tr>
+      <tr><td>SEO</td><td>92</td><td class="ok">92</td></tr>
+      <tr><td>Performance</td><td>99</td><td class="dn">98</td></tr>
+      <tr><td>LCP</td><td>1,0 s</td><td class="dn">1,1 s</td></tr>
+      <tr><td>Altura da página (1440px)</td><td>6.492 px</td><td>13.257 px</td></tr>
+      <tr><td>Scroll horizontal</td><td>nenhum</td><td class="ok">nenhum</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>O ponto de performance e o décimo de segundo de LCP saíram numa página que
+    <strong>dobrou de altura</strong>. O que o Lighthouse ainda aponta como oportunidade é tudo
+    anterior a este trabalho: as duas fontes variáveis da Fraunces (265 KB), os pacotes do
+    Next e os dois logotipos. Não acrescentei família tipográfica nem biblioteca.</p>
+  <p>Durante o caminho eu <strong>quebrei a acessibilidade e consertei</strong>: o turquesa da marca
+    reprova em contraste como rótulo pequeno, e os eyebrows das seções novas geravam
+    <code>&lt;p&gt;</code> dentro de <code>&lt;p&gt;</code>, o que derrubava a hidratação do React.
+    Os dois estão corrigidos e medidos.</p>
+  <div class="tagbar">
+    <span class="tag">1440 · 1280 · 1024 · 768 · 390 · 360</span>
+    <span class="tag">prefers-reduced-motion verificado</span>
+    <span class="tag">um só &lt;h1&gt;</span>
+    <span class="tag">typecheck limpo</span>
+  </div>
+
+  <h2>O que ficou de fora, e por quê</h2>
+  <ul>
+    <li><strong>O preço da gramática (R$ 120,00).</strong> O site não exibe preço nenhum, por decisão
+      deliberada, e leva a conversa ao WhatsApp. Publicar é mudar a estratégia comercial, não o
+      layout — não é minha decisão.</li>
+    <li><strong>O horário minuto a minuto da aula</strong> (15h–15h55, 5' de intervalo…). A estrutura
+      de 55'/45'/60' virou a linha do tempo; o relógio exato é operacional demais para a página e
+      muda por turma.</li>
+    <li><strong>“Redações dentro do prazo garantem a correção”</strong> e avisos do gênero: é regra
+      interna, não argumento para quem ainda está decidindo.</li>
+    <li><strong>Acompanhamento escolar, aula particular e afins</strong> entraram como chips, sem corpo
+      próprio — não há conteúdo publicado para mais que isso. A lista aceita item novo sem
+      redesenho, que é onde os eventos culturais entram quando houver o que contar.</li>
+  </ul>
+
+  <h2>Pendências — o que depende de você</h2>
+  <p>Nenhuma delas trava o que já está pronto. Cada uma tem um lugar no código esperando o dado.</p>
+
+  <div class="pend">
+    <h3>1. Nomes e disciplinas dos cinco professores</h3>
+    <p>As cinco fotos estão tratadas, recortadas e com o mesmo enquadramento. A grade de equipe
+      está construída e <strong>desligada</strong>, porque publicar foto de professor sem nome é pior
+      do que não publicar, e nome inventado não é opção.</p>
+    <p class="porque">Mande nome e disciplina de cada um, na ordem das fotos, e a seção acende.</p>
+    <p class="onde">site.ts → inside.team.members</p>
+  </div>
+
+  <div class="pend">
+    <h3>2. O recorte do “87% com nota maior que 800”</h3>
+    <p>É o primeiro número real do site e vale mais que toda a seção ilustrativa — por isso está
+      em destaque e sem selo. Mas hoje a linha da fonte diz apenas que o dado foi divulgado pela
+      escola no material de 2026.</p>
+    <p class="porque">Qual turma, qual período, medido como? Número grande sem recorte envelhece mal,
+      e a Carla vai perguntar antes de qualquer pai perguntar.</p>
+    <p class="onde">site.ts → results.real_stat.source</p>
+  </div>
+
+  <div class="pend">
+    <h3>3. O preço da gramática vai ao site?</h3>
+    <p>R$ 120,00 é o único preço no material inteiro. Não publiquei.</p>
+    <p class="porque">O site hoje não mostra preço nenhum e leva tudo ao WhatsApp. Mudar isso é
+      decisão comercial sua, não de layout.</p>
+  </div>
+
+  <div class="pend">
+    <h3>4. Os arquivos dos reels</h3>
+    <p>Mande os <code>.mp4</code> e os vídeos passam a tocar dentro do site, sem mandar ninguém
+      para o Instagram.</p>
+    <p class="onde">public/videos/ → site.ts → inside.main_video.video_url e inside.reels[].video_url</p>
+  </div>
+
+  <div class="pend">
+    <h3>5. O público do Miguilim: 7º e 8º, ou 6º, 7º e 8º?</h3>
+    <p>O PDF institucional diz <strong>7º e 8º ano</strong>. Seu áudio diz “sexto, sétimo, oitavo”.
+      Publiquei o que está no PDF, por ser o material oficial.</p>
+    <p class="porque">Se o certo for a partir do 6º, é uma palavra para trocar.</p>
+    <p class="onde">site.ts → miguilim.audience</p>
+  </div>
+
+  <div class="pend">
+    <h3>6. Os professores sabem que nome e foto vão ao ar?</h3>
+    <p>Você mandar as fotos autoriza do lado da escola. Mas nome somado a rosto, numa página
+      pública, é dado pessoal de gente identificável — cada um precisa saber.</p>
+    <p class="porque">Vale o mesmo para a foto de sala de aula que entrou na seção do curso: os
+      alunos aparecem identificáveis. A foto já é pública no Instagram de vocês, então presumo que
+      esteja resolvido — mas prefiro registrar do que supor.</p>
+  </div>
+
+  <div class="pend">
+    <h3>7. Dois detalhes menores</h3>
+    <p><strong>Turmas e horários</strong> (quartas 14h–17h, quintas 15h–18h; Miguilim segundas e
+      quartas) são reais, mas mudam todo ano. Estão num lugar fácil de editar, e isso vira tarefa
+      de manutenção anual.</p>
+    <p><strong>O depoimento que cita “minha filha, Beatriz”</strong> continua sem nome, foto ou curso,
+      como estava. Se quiserem anonimizar também o primeiro nome dela, é uma edição.</p>
+  </div>
+
+  <h2>Para a Carla</h2>
+  <p>O documento de revisão está pronto e abre bem no celular: <strong>206 trechos</strong>, todo o
+    texto publicado na ordem em que aparece, agrupado por seção. Embaixo de cada trecho vem o
+    campo exato onde ele vive, para a correção voltar aplicável — ela anota, você me manda, e a
+    mudança cai no lugar certo.</p>
+  <p>O documento é gerado a partir do conteúdo, nunca escrito à mão, então não tem como divergir
+    do que está no ar.</p>
+
+  <h2>No ar para você ver</h2>
+  <p><a href="https://ave-palavra-site.vercel.app"><strong>ave-palavra-site.vercel.app</strong></a></p>
+  <p>Uma observação sobre esse link: como era o primeiro deploy do projeto, a Vercel o tratou
+    como <strong>produção</strong> dela, e não como preview. Na prática isso só significa que o
+    endereço é estável e fica de pé — ele não toca em avepalavraecia.com.br nem em nenhum domínio
+    da escola. <strong>Nenhum domínio foi apontado para cá</strong>, e os metadados da página ainda
+    declaram avepalavraecia.com.br como endereço canônico. Antes de virar o site de verdade,
+    precisamos confirmar qual domínio será o final.</p>
+
+  <footer>
+    Seis commits em <code>main-preview</code>, nenhum em <code>main</code>. As imagens originais
+    seguem em <code>materials/</code>, junto do documento da Carla e deste relatório.
+  </footer>
+</main>
