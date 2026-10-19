@@ -69,11 +69,21 @@ export function SiteFooter({
         {footer.socials.length > 0 && (
           <div className="foot__col">
             <p className="foot__h">Siga</p>
-            {footer.socials.map((social) => (
-              <a key={social.url} href={social.url} target="_blank" rel="noopener noreferrer">
-                {social.label}
-              </a>
-            ))}
+            {footer.socials.map((social) => {
+              // A lista também carrega âncoras da própria página (os serviços,
+              // que ficam fora da nav principal por pedido de discrição). Âncora
+              // interna não abre em aba nova.
+              const interno = social.url.startsWith('#');
+              return (
+                <a
+                  key={social.url}
+                  href={social.url}
+                  {...(interno ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                >
+                  {social.label}
+                </a>
+              );
+            })}
           </div>
         )}
       </div>

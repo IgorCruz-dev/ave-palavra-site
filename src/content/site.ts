@@ -668,7 +668,7 @@ export const CONTEUDO: SiteContent = {
       title_highlight_inline: true,
     },
     results: {
-      lead: 'Notas, aprovações e histórias de alunos da Ave, Palavra!, apresentadas com dados reais e autorização de quem viveu cada conquista.',
+      lead: 'O que é resultado real vem com a fonte declarada. O que é demonstração do método vem marcado como exemplo ilustrativo.',
       facts: [
         {
           text: 'Ano de fundação, em julho, pelas professoras Edna, Lucileida e Carla',
