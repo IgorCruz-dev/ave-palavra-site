@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Eyebrow, Reveal, SectionTitle } from '../primitives';
+import { CtaButton, Reveal, SectionTitle } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { ServicesSection as ServicesData, SiteLinks } from '@/content/types';
 
@@ -33,8 +33,9 @@ export function ServicesSection({
         <header className="svc__head">
           <div>
             {services.eyebrow && (
-              <Reveal as="p" index={0}>
-                <Eyebrow>{services.eyebrow}</Eyebrow>
+              <Reveal as="p" index={0} className="eyebrow">
+                <span className="dot" />
+                {services.eyebrow}
               </Reveal>
             )}
             <Reveal index={1}>
