@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Eyebrow, Reveal, SectionTitle, Tick } from '../primitives';
+import { CtaButton, Reveal, SectionTitle, Tick } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { SiteLinks, TravessiaSection as TravessiaData } from '@/content/types';
 
@@ -33,8 +33,8 @@ export function TravessiaSection({
           src={travessia.bridge_image_url}
           alt={travessia.bridge_alt}
           aria-hidden={travessia.bridge_alt ? undefined : true}
-          width={1500}
-          height={524}
+          width={1400}
+          height={489}
           loading="lazy"
           decoding="async"
         />
@@ -44,8 +44,9 @@ export function TravessiaSection({
         <div className="trav__head">
           <header className="sec-head">
             {travessia.eyebrow && (
-              <Reveal as="p" index={0}>
-                <Eyebrow dark>{travessia.eyebrow}</Eyebrow>
+              <Reveal as="p" index={0} className="eyebrow eyebrow--dark">
+                <span className="dot" />
+                {travessia.eyebrow}
               </Reveal>
             )}
             <Reveal index={1}>

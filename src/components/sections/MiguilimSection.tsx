@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Eyebrow, Reveal, SectionTitle, Tick, usePauseWhenOffscreen } from '../primitives';
+import { CtaButton, Reveal, SectionTitle, usePauseWhenOffscreen } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { MiguilimSection as MiguilimData, SiteLinks } from '@/content/types';
 
@@ -32,8 +32,9 @@ export function MiguilimSection({
         <header className="sec-head" style={{ marginBottom: 0 }}>
           <div className="mig__head">
             {miguilim.eyebrow && (
-              <Reveal as="p" index={0}>
-                <Eyebrow dark>{miguilim.eyebrow}</Eyebrow>
+              <Reveal as="p" index={0} className="eyebrow eyebrow--dark">
+                <span className="dot" />
+                {miguilim.eyebrow}
               </Reveal>
             )}
             {miguilim.audience && (
