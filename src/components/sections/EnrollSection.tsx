@@ -26,9 +26,8 @@ export function EnrollSection({
 
   return (
     <section className="enroll" id="matriculas" aria-labelledby="en-title">
-      {/* A fachada é a única foto do lugar físico que temos. Vem antes do
-          painel porque ela faz a transição: a escola existe, tem endereço e
-          porta, e é para lá que o botão abaixo leva a conversa. */}
+      {/* Faixa opcional com uma foto do lugar, antes do painel. Hoje fica
+          vazia: a fachada foi para dentro do painel, para a página encurtar. */}
       {enroll.place?.image_url && (
         <Reveal as="figure" className="place">
           {/* eslint-disable-next-line @next/next/no-img-element */}

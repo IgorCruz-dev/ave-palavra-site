@@ -400,8 +400,11 @@ export const CONTEUDO: SiteContent = {
       },
       eyebrow: 'Matrículas abertas',
       visible: true,
-      photo_alt: 'Professora Carla Bastianini na biblioteca da escola',
-      photo_url: '/img/carla-biblioteca.webp',
+      // A fachada entrou no lugar da foto da Carla na biblioteca, que tinha o
+      // mesmo retoque "IA" da antiga foto do herói. Antes ela era uma faixa
+      // própria acima do painel; aqui dentro, a página fica meia tela menor.
+      photo_alt: 'Fachada da Ave, Palavra! na Rua Torquato Caleiro: muro azul, letreiro turquesa com o logotipo da escola',
+      photo_url: '/img/fachada.webp',
       primary_cta: {
         type: 'whatsapp',
         label: 'Quero garantir minha vaga',
@@ -422,12 +425,7 @@ export const CONTEUDO: SiteContent = {
       contact_kicker: 'Fale com a gente',
       // Única foto do lugar físico que temos, recortada de dentro do post de
       // Instagram (a arte não entra; a foto, sim).
-      place: {
-        image_url: '/img/fachada.webp',
-        alt: 'Fachada da Ave, Palavra! na Rua Torquato Caleiro: muro azul, letreiro turquesa com o logotipo da escola e calçada de pedras portuguesas',
-        kicker: 'A escola',
-        text: 'R. Torquato Caleiro, 725 — Vila Nicácio, Franca/SP. Aulas presenciais, em sala, desde 2010.',
-      },
+      place: null,
       title_highlight: 'a sua.',
       title_highlight_inline: true,
     },
@@ -561,18 +559,9 @@ export const CONTEUDO: SiteContent = {
       title: 'Aprender junto.\nEvoluir',
       eyebrow: 'Nosso método',
       visible: true,
-      cycle: {
-        kicker: 'O ciclo da semana',
-        title: 'Por aqui, o processo passa por',
-        steps: [
-          { label: 'Aula', text: 'Humanidades, escrita e técnica, no mesmo encontro.' },
-          { label: 'Produção', text: 'Texto escrito em sala, no formato da prova.' },
-          { label: 'Correção', text: 'Semanal, por especialistas, escrita ou em áudio.' },
-          { label: 'Repertório', text: 'Guia cultural e material autoral da escola.' },
-          { label: 'Acompanhamento', text: 'Tutoria individual para o próximo passo.' },
-        ],
-        note: 'Tudo isso respeitando o caminho de cada aluno.',
-      },
+      // O ciclo da semana (aula · produção · correção · repertório ·
+      // acompanhamento) saiu: repetia as três etapas logo acima.
+      cycle: null,
       correction_demo: {
         theme: 'os desafios da leitura na era digital',
         scores: [
@@ -661,24 +650,9 @@ export const CONTEUDO: SiteContent = {
     },
     results: {
       lead: 'O que é resultado real vem com a fonte declarada. O que é demonstração do método vem marcado como exemplo ilustrativo.',
-      facts: [
-        {
-          text: 'Ano de fundação, em julho, pelas professoras Edna, Lucileida e Carla',
-          value: '2010',
-        },
-        {
-          text: 'Aulas presenciais coletivas e tutorias individuais com cada aluno',
-          value: '2 formatos',
-        },
-        {
-          text: 'Metodologia com participação significativa de quem aprende',
-          value: 'Ativa',
-        },
-        {
-          text: 'Redação, humanidades, português e formação para empresas',
-          value: 'Português e Cia',
-        },
-      ],
+      // A faixa de fatos (2010 · 2 formatos · Ativa · Português e Cia) saiu:
+      // repetia os números do herói, e o pedido foi uma página mais curta.
+      facts: [],
       title: 'Cada redação conta\numa',
       eyebrow: 'Resultados',
       visible: true,

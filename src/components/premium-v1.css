@@ -367,9 +367,9 @@ html:has([data-org-site]) {
   .tick--light{background:#fff;box-shadow:0 0 14px rgba(255,255,255,.5)}
   .tick--light::after{border-color:var(--navy)}
   .enroll__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
-  .enroll__card-wrap{position:relative;z-index:1;min-height:440px}
-  .enroll__photo{position:absolute;right:0;top:-10px;width:78%;aspect-ratio:4/5;border-radius:220px 220px 28px 28px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 0 8px rgba(255,255,255,.08)}
-  .enroll__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
+  .enroll__card-wrap{position:relative;z-index:1;min-height:400px}
+  .enroll__photo{position:absolute;right:0;top:0;width:92%;aspect-ratio:3/2;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 0 8px rgba(255,255,255,.08)}
+  .enroll__photo img{width:100%;height:100%;object-fit:cover;object-position:56% 30%}
   .contact-card{position:absolute;left:0;bottom:-30px;width:300px;padding:24px 26px}
   .contact-card__k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--sky)}
   .contact-card__phone{display:block;font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:-.02em;margin:8px 0 14px}
@@ -432,8 +432,8 @@ html:has([data-org-site]) {
     .quotes{grid-template-columns:1fr 1fr}.quote--alt{margin-left:0}
     .enroll{padding:20px 20px 90px}
     .enroll__panel{grid-template-columns:1fr;padding:80px 50px 70px;gap:60px}
-    .enroll__card-wrap{min-height:520px}
-    .enroll__photo{width:62%;right:4%}
+    .enroll__card-wrap{min-height:440px}
+    .enroll__photo{width:78%;right:4%}
     .foot__grid{grid-template-columns:1fr 1fr}
   }
 
@@ -532,7 +532,7 @@ html:has([data-org-site]) {
     .enroll__actions{flex-direction:column}
     .enroll__actions .btn{width:100%;justify-content:center;padding:18px}
     .enroll__card-wrap{min-height:0;display:flex;flex-direction:column;gap:0}
-    .enroll__photo{position:relative;width:86%;right:auto;top:auto;margin:0 auto}
+    .enroll__photo{position:relative;width:100%;right:auto;top:auto;margin:0 auto}
     .contact-card{position:relative;width:auto;left:auto;bottom:auto;margin:-60px 4px 0}
     .foot{padding:60px 0 30px}
     .foot__grid{grid-template-columns:1fr;gap:30px}
@@ -1012,3 +1012,37 @@ html:has([data-org-site]) { scroll-behavior: auto; }
    Só `transform`: o compositor resolve, sem re-rasterizar o blur a cada quadro. */
 @keyframes ops-lens   { 0%,100% { transform: translateX(calc(var(--lens-travel) * -1)) } 50% { transform: translateX(var(--lens-travel)) } }
 @keyframes ops-lens-i { 0%,100% { transform: translateX(var(--lens-travel)) } 50% { transform: translateX(calc(var(--lens-travel) * -1)) } }
+
+/* =====================================================================
+ * PÁGINA MAIS CURTA — pedido de um site "mais macro", com menos rolagem.
+ * Fica no fim para valer sobre as regras de cada seção.
+ * ===================================================================== */
+[data-org-site] {
+  .svc-card .more{margin-top:0}
+  .svc-card .more__toggle{margin:0;padding:10px 18px;font-size:14px}
+  .svc-card .more__body{margin-top:20px}
+  .svc-card__lead{margin-bottom:18px}
+
+  @media (max-width:600px){
+    /* A lente do Miguilim é decorativa e a frase já está no texto ao lado. */
+    .lens-stage{display:none}
+    .mig__grid{gap:0}
+
+    /* Etapas do Método em linha: número pequeno ao lado do título. */
+    .step{display:grid;grid-template-columns:58px 1fr;column-gap:14px;align-items:start;padding:20px 18px}
+    .step__n{grid-row:span 2;font-size:50px}
+    .step h3{font-size:23px;margin:2px 0 4px}
+    .step p{font-size:15px}
+    .step__icon{display:none}
+
+    /* Equipe em três colunas. */
+    .team__grid .tmember{flex-basis:calc((100% - 28px) / 3)}
+
+    /* Rodapé em duas colunas, com a marca ocupando a linha toda. */
+    .foot__grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+    .foot__grid > :first-child{grid-column:1 / -1}
+
+    /* A fachada é horizontal: o cartão de contato só encosta na base dela. */
+    .contact-card{margin-top:-28px}
+  }
+}

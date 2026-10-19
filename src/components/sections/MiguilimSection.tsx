@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Reveal, SectionTitle, usePauseWhenOffscreen } from '../primitives';
+import { CtaButton, MoreDetails, Reveal, SectionTitle, usePauseWhenOffscreen } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { MiguilimSection as MiguilimData, SiteLinks } from '@/content/types';
 
@@ -92,21 +92,6 @@ export function MiguilimSection({
           </div>
         )}
 
-        {miguilim.general && miguilim.general.items.length > 0 && (
-          <Reveal className="panel" style={{ marginTop: 22, background: 'rgba(255,255,255,.62)', boxShadow: 'none', border: '1px solid rgba(255,255,255,.9)' }}>
-            <p className="panel__kicker" style={{ color: '#b4455f' }}>
-              {miguilim.general.kicker}
-            </p>
-            <ul className="tagrow" style={{ marginTop: 14 }}>
-              {miguilim.general.items.map((item) => (
-                <li className="tag" key={item}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        )}
-
         <Reveal className="mig__foot">
           {miguilim.signature && <p className="mig__sign">{miguilim.signature}</p>}
           {miguilim.primary_cta && (
@@ -120,6 +105,23 @@ export function MiguilimSection({
             />
           )}
         </Reveal>
+
+        {miguilim.general && miguilim.general.items.length > 0 && (
+          <MoreDetails label="Ver detalhes do curso">
+            <Reveal className="panel" style={{ background: 'rgba(255,255,255,.62)', boxShadow: 'none', border: '1px solid rgba(255,255,255,.9)' }}>
+              <p className="panel__kicker" style={{ color: '#b4455f' }}>
+                {miguilim.general.kicker}
+              </p>
+              <ul className="tagrow" style={{ marginTop: 14 }}>
+                {miguilim.general.items.map((item) => (
+                  <li className="tag" key={item}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </MoreDetails>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { CtaButton, Reveal, SectionTitle } from '../primitives';
+import { CtaButton, MoreDetails, Reveal, SectionTitle } from '../primitives';
 import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { ServicesSection as ServicesData, SiteLinks } from '@/content/types';
 
@@ -10,6 +10,7 @@ import type { ServicesSection as ServicesData, SiteLinks } from '@/content/types
  * É o terceiro dos cursos: vem logo depois do Miguilim e tem pílula própria na
  * nav. Continua mais enxuta que as outras duas seções (metade do respiro
  * vertical, título menor, nenhuma imagem) para a Redação seguir como vitrine.
+ * Cada card mostra título e descrição; os blocos ficam em "Ver detalhes".
  *
  * O empresarial tem mais corpo que os demais porque é o único com conteúdo
  * próprio publicado pela escola. A lista de chips aceita itens novos sem
@@ -64,14 +65,18 @@ export function ServicesSection({
               >
                 <h3>{card.title}</h3>
                 {card.lead && <p className="svc-card__lead">{card.lead}</p>}
-                <div className="svc-card__blocks">
-                  {card.blocks.map((block) => (
-                    <div key={block.title}>
-                      <h4>{block.title}</h4>
-                      <p>{block.text}</p>
+                {card.blocks.length > 0 && (
+                  <MoreDetails label="Ver detalhes" tone="dark">
+                    <div className="svc-card__blocks">
+                      {card.blocks.map((block) => (
+                        <div key={block.title}>
+                          <h4>{block.title}</h4>
+                          <p>{block.text}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </MoreDetails>
+                )}
               </Reveal>
             ))}
           </div>
