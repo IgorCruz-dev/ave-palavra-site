@@ -190,6 +190,30 @@ html:has([data-org-site]) {
   .name-card span{font-size:12.5px;color:rgba(232,240,255,.75)}
   .pen{position:absolute;width:280px;left:-10%;bottom:31%;z-index:5;transform:rotate(-28deg);filter:drop-shadow(0 26px 22px rgba(0,0,0,.45))}
 
+  /* Palco sem foto: a ave da logomarca é a protagonista, e as peças descem um
+     pouco para ocupar o espaço que era da pessoa. */
+  .hero__stage--brand .stage__bird{top:6%}
+  .hero__stage--brand .sheet--back{top:30%;left:2%}
+  .hero__stage--brand .check-card{top:50%;right:-2%}
+  .hero__stage--brand .pen{bottom:20%;left:-6%}
+  @media (max-width:1100px){
+    .hero.hero .hero__stage--brand{height:540px}
+    .hero__stage--brand .stage__bird{width:80%;left:10%;top:6%}
+    .hero__stage--brand .sheet--back{left:7%;top:20%}
+    .hero__stage--brand .check-card{right:7%;top:40%}
+    .hero__stage--brand .pen{top:8%;right:8%;bottom:auto;left:auto}
+    /* O degradê só existia para dissolver a base da foto; sem ela, deixava
+       uma emenda visível com o fundo logo abaixo do palco. */
+    .hero__stage--brand::after{display:none}
+  }
+  @media (max-width:600px){
+    .hero.hero .hero__stage--brand{height:380px}
+    .hero__stage--brand .stage__bird{width:104%;left:-2%;top:8%}
+    .hero__stage--brand .sheet--back{left:-18px;top:22%}
+    .hero__stage--brand .check-card{right:10px;top:150px}
+    .hero__stage--brand .pen{top:26px;right:-4px}
+  }
+
   .hero__scroll{position:absolute;left:50%;bottom:26px;width:26px;height:42px;border-radius:14px;border:1.5px solid rgba(255,255,255,.4);z-index:6;transform:translateX(-50%)}
   .hero__scroll span{position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:ops-scroll 1.8s infinite}
 

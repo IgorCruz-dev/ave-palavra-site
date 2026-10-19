@@ -8,9 +8,12 @@ import type { HeroSection as HeroData } from '@/content/types';
  * Herói: a seção mais pesada do template.
  *
  * Camadas do palco, de trás para frente: halo → ave gigante → anel → folha de
- * redação 3D → foto recortada da pessoa → card de vidro (checklist) → pílula
- * com nome → caneta. Os `data-depth` alimentam o parallax (ver
- * useStageParallax), e as classes float-* fazem a flutuação em loop.
+ * redação 3D → foto recortada da pessoa (opcional) → card de vidro
+ * (checklist) → pílula com nome → caneta. Sem foto, o palco recebe
+ * `hero__stage--brand`, que reposiciona as peças em torno da ave.
+ *
+ * Os `data-depth` alimentam o parallax (ver useStageParallax), e as classes
+ * float-* fazem a flutuação em loop.
  *
  * A folha, a caneta e os cards são decoração — ficam fora da árvore de
  * acessibilidade; só a foto da pessoa tem alt descritivo.
@@ -112,7 +115,8 @@ export function HeroSection({
           )}
         </div>
 
-        <div className="hero__stage" ref={stageRef}>
+        {/* Sem foto, a ave da logomarca vira a protagonista do palco. */}
+        <div className={`hero__stage${person?.image_url ? '' : ' hero__stage--brand'}`} ref={stageRef}>
           <div className="stage__halo" data-depth="-0.4" aria-hidden="true" />
           {symbolUrl && (
             // eslint-disable-next-line @next/next/no-img-element

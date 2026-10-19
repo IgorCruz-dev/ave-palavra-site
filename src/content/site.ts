@@ -70,26 +70,11 @@ export const CONTEUDO: SiteContent = {
           value: 'Franca',
         },
       ],
-      person: {
-        alt: 'Professora Carla Bastianini, à frente da Ave, Palavra!, sorrindo, com a camiseta da escola',
-        name: 'Profa. Carla Bastianini',
-        role: 'À frente da Ave, Palavra!',
-        image_url: '/img/carla-hero-1200.webp',
-        image_sources: [
-          {
-            url: '/img/carla-hero-480.webp',
-            width: 480,
-          },
-          {
-            url: '/img/carla-hero-800.webp',
-            width: 800,
-          },
-          {
-            url: '/img/carla-hero-1200.webp',
-            width: 1200,
-          },
-        ],
-      },
+      // Sem foto no herói: a da Carla estava retocada demais ("muito IA",
+      // nas palavras do founder). O palco fica com a ave da logomarca como
+      // protagonista. Para voltar a ter uma foto aqui, use uma foto NATURAL,
+      // sem upscale nem suavização de pele, recortada sem fundo.
+      person: null,
       eyebrow: 'Redação · Português · Repertório',
       visible: true,
       checklist: {

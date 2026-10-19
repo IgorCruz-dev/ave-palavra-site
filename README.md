@@ -45,9 +45,10 @@ Pontos que vale conhecer:
 
 ## Imagens
 
-`public/img/` — já em WebP, nos tamanhos servidos. A foto do herói tem três
-larguras (`carla-hero-480/800/1200.webp`) usadas no `srcset`, porque ela é o
-maior elemento da primeira tela e vale baixar só o tamanho necessário.
+`public/img/` — já em WebP, nos tamanhos servidos. O herói está sem foto (a ave
+da logomarca é a protagonista). Para voltar a ter uma, preencha `hero.person`
+com uma foto natural, recortada sem fundo, em três larguras (480/800/1200) para
+o `srcset`: ela vira o maior elemento da primeira tela.
 
 `og-1200x630.jpg` é o card de compartilhamento do WhatsApp e das redes.
 
