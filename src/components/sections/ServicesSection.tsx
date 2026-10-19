@@ -5,13 +5,11 @@ import { resolveCtaHref, ctaIsExternal } from '@/content/helpers';
 import type { ServicesSection as ServicesData, SiteLinks } from '@/content/types';
 
 /**
- * "Outros serviços" — português empresarial, SIPAT's e o resto.
+ * Empresarial — português empresarial, SIPAT's e o resto.
  *
- * O pedido era explícito: o empresarial continua no site, "mas de uma forma
- * mais discreta". Discrição aqui é hierarquia, não omissão — a seção existe,
- * tem conteúdo de verdade e é encontrável pelo rodapé, mas usa metade do
- * respiro vertical das outras, título menor e nenhuma imagem. Quem veio pela
- * redação passa por ela sem ser interrompido; quem veio pela empresa acha.
+ * É o terceiro dos cursos: vem logo depois do Miguilim e tem pílula própria na
+ * nav. Continua mais enxuta que as outras duas seções (metade do respiro
+ * vertical, título menor, nenhuma imagem) para a Redação seguir como vitrine.
  *
  * O empresarial tem mais corpo que os demais porque é o único com conteúdo
  * próprio publicado pela escola. A lista de chips aceita itens novos sem

@@ -117,7 +117,7 @@ html:has([data-org-site]) {
   .nav.is-solid .logo-light{display:none}.nav.is-solid .logo-dark{display:block}
   .nav.is-solid .nav__links a{color:var(--text)}
   .nav.is-solid .nav__wa{color:var(--navy);border-color:var(--line)}
-  .nav__links{display:flex;gap:36px;padding:10px 26px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+  .nav__links{display:flex;gap:30px;padding:10px 26px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
   .nav.is-solid .nav__links{background:transparent;border-color:transparent}
   .nav__links a{color:rgba(255,255,255,.85);font-weight:600;font-size:14.5px;position:relative}
   .nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .35s var(--ease);border-radius:2px}
@@ -568,6 +568,49 @@ html:has([data-org-site]) {
   .menu__foot{display:flex;flex-direction:column;gap:12px;padding-top:22px}
   .menu__foot .btn{width:100%;justify-content:center}
 
+  /* ---- Cursos na nav: pílulas no desktop, submenu no mobile ---- */
+  .course-dot{flex:none;width:9px;height:9px;border-radius:50%;display:inline-block}
+  .course-dot--teal{background:var(--teal);box-shadow:0 0 0 3px rgba(43,196,216,.22)}
+  .course-dot--warm{background:linear-gradient(135deg,var(--sun),#f0a0b4);box-shadow:0 0 0 3px rgba(240,160,180,.25)}
+  .course-dot--navy{background:#8fb0ff;box-shadow:0 0 0 3px rgba(143,176,255,.22)}
+  .nav__links{align-items:center}
+  .nav__courses{display:flex;align-items:center;gap:4px;margin:-6px 0;padding:4px 4px 4px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+  .nav__courses-k{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-right:6px}
+  .nav__links a.nav__course{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;color:#fff;font-weight:700;font-size:14px;transition:background .3s,color .3s}
+  .nav__links a.nav__course::after{display:none}
+  .nav__links a.nav__course:hover{background:rgba(255,255,255,.14)}
+  .nav.is-solid .nav__courses{background:var(--mist);border-color:rgba(28,48,110,.1)}
+  .nav.is-solid .nav__courses-k{color:var(--muted)}
+  .nav.is-solid .nav__links a.nav__course{color:var(--navy)}
+  .nav.is-solid .nav__links a.nav__course:hover{background:#fff}
+  .nav.is-solid .course-dot--navy{background:var(--navy-2);box-shadow:0 0 0 3px rgba(36,64,154,.15)}
+
+  .menu{overflow-y:auto}
+  .nav__links a{white-space:nowrap}
+  /* Desktop estreito: a barra com os três cursos precisa de espaço. */
+  @media (max-width:1360px) and (min-width:1101px){
+    .nav{padding-left:32px;padding-right:32px}.nav.is-solid{padding-left:32px;padding-right:32px}
+    .nav__links{gap:20px;padding:10px 16px}
+    .nav__courses-k{display:none}
+    .nav__courses{padding-left:4px}
+    .nav__logo img{height:46px}
+  }
+  @media (max-width:1240px) and (min-width:1101px){
+    .nav__wa{display:none}
+    .nav__links a.nav__course{padding:7px 11px}
+  }
+  .menu__group{border-bottom:1px solid rgba(255,255,255,.1)}
+  .menu__toggle{width:100%;display:flex;align-items:center;justify-content:space-between;font-family:var(--serif);font-weight:600;font-size:34px;letter-spacing:-.025em;padding:14px 0;text-align:left;color:#fff}
+  .menu__toggle svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.7;transition:transform .3s var(--ease)}
+  .menu__group.is-open .menu__toggle svg{transform:rotate(180deg)}
+  .menu__toggle:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:6px}
+  .menu__sub{list-style:none;margin:0;padding:0 0 14px;display:flex;flex-direction:column;gap:6px;animation:ops-menu-in .28s var(--ease)}
+  .menu__sub[hidden]{display:none}
+  .menu__links .menu__sub a{display:flex;align-items:center;gap:14px;font-family:inherit;font-size:inherit;letter-spacing:0;padding:12px 16px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.05)}
+  .menu__sub a span{display:flex;flex-direction:column;gap:2px}
+  .menu__sub b{font-size:18px;font-weight:700}
+  .menu__sub small{font-size:13px;color:rgba(232,240,255,.65);font-weight:500}
+
   /* ---------- lightbox de vídeo ---------- */
   .lightbox{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:24px;background:rgba(4,9,30,.86);backdrop-filter:blur(10px);animation:ops-menu-in .25s var(--ease)}
   .lightbox__inner{position:relative;width:min(460px,100%);aspect-ratio:9/16;border-radius:24px;overflow:hidden;box-shadow:0 60px 100px -40px rgba(0,0,0,.8)}
@@ -752,8 +795,11 @@ html:has([data-org-site]) {
   .team{margin-top:84px;padding-top:56px;border-top:1px solid var(--line)}
   .team__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
   .tmember{text-align:left}
-  .tmember__ph{position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--ink));box-shadow:0 22px 44px -28px rgba(13,26,74,.55)}
-  .tmember__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+  /* Arco claro atrás de cada recorte: as fotos não têm fundo próprio. */
+  .tmember__ph{position:relative;display:block;aspect-ratio:4/5;border-radius:999px 999px 22px 22px;overflow:hidden;background:radial-gradient(80% 60% at 50% 30%,#fff 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,var(--sky),#b9e6f0);box-shadow:inset 0 0 0 1px rgba(20,151,184,.12),0 22px 44px -30px rgba(13,26,74,.5)}
+  .tmember__ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:linear-gradient(180deg,rgba(185,230,240,0),rgba(185,230,240,.55));pointer-events:none}
+  .tmember__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform-origin:50% 100%;transition:transform .5s var(--ease)}
+  .tmember:hover .tmember__ph img{transform:scale(1.04)}
   .tmember b{display:block;margin-top:14px;font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
   .tmember span{display:block;margin-top:3px;font-size:13.5px;color:var(--muted);font-weight:600}
 
@@ -816,7 +862,9 @@ html:has([data-org-site]) {
     .svc-card--wide .svc-card__blocks{grid-template-columns:1fr 1fr}
     .cycle__steps{grid-template-columns:repeat(2,1fr);gap:12px}
     .cstep::after{display:none}
-    .team__grid{grid-template-columns:repeat(3,1fr)}
+    /* Flex em vez de grid: a última linha incompleta fica centralizada. */
+    .team__grid{display:flex;flex-wrap:wrap;justify-content:center}
+    .team__grid .tmember{flex:0 0 calc((100% - 36px) / 3)}
     .place img{aspect-ratio:16/8}
     .place__cap{padding:48px 30px 24px}
   }
@@ -865,7 +913,8 @@ html:has([data-org-site]) {
     .cycle{padding:24px 20px 22px}
     .cycle__steps{grid-template-columns:1fr;gap:10px}
     .team{margin-top:56px;padding-top:40px}
-    .team__grid{grid-template-columns:1fr 1fr;gap:14px}
+    .team__grid{gap:14px}
+    .team__grid .tmember{flex-basis:calc((100% - 14px) / 2)}
     .tmember b{font-size:17px}
 
     .place{border-radius:20px;margin-bottom:28px}

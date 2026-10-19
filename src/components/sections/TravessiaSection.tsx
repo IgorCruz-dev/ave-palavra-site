@@ -25,7 +25,7 @@ export function TravessiaSection({
   const { timeline, genres, boards, classes, general, epigraph } = travessia;
 
   return (
-    <section className="trav" id="cursos" aria-labelledby="trav-title">
+    <section className="trav" id="redacao" aria-labelledby="trav-title">
       {travessia.bridge_image_url && (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img

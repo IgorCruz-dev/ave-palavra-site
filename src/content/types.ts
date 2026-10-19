@@ -35,9 +35,29 @@ export interface Approval {
   year: number | null;
 }
 
+/**
+ * Link da nav. Com `children`, vira grupo: no desktop, os filhos aparecem
+ * direto na barra, como pílulas em destaque; no mobile, o rótulo vira um botão
+ * que abre o submenu.
+ */
+export interface NavLink {
+  label: string;
+  anchor: string;
+  children?: NavChild[];
+}
+
+export interface NavChild {
+  label: string;
+  anchor: string;
+  /** Linha de apoio no submenu do mobile ("7º e 8º ano"). */
+  hint?: string;
+  /** Cor do marcador — a mesma da seção do curso. */
+  tone: 'teal' | 'warm' | 'navy';
+}
+
 export interface NavSection {
   visible: boolean;
-  links: { label: string; anchor: string }[];
+  links: NavLink[];
   /**
    * A nav é transparente sobre o herói escuro e sólida depois de rolar, então
    * o template precisa de duas versões do logo. Vazias → cai no `logo_url` da
@@ -205,7 +225,7 @@ export interface InsideSection {
   lead: string;
   main_video: VideoItem | null;
   reels: VideoItem[];
-  /** Grade de professores. Sem `members`, não é renderizada. */
+  /** "Conheça nossa equipe". Sem `members`, não é renderizada. */
   team: TeamBlock | null;
   testimonials: Testimonial[];
 }
@@ -394,7 +414,7 @@ export interface ServiceCard {
 }
 
 /**
- * "Outros serviços" — presente e encontrável, sem competir com a redação.
+ * Empresarial — o terceiro curso, logo depois do Miguilim, mais enxuto que os outros dois.
  * Faixa compacta: o empresarial tem mais corpo porque tem conteúdo próprio;
  * o resto são chips, e a lista aceita itens novos sem redesenho.
  */

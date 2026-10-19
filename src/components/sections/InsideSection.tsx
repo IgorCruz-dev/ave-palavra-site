@@ -165,16 +165,19 @@ export function InsideSection({ inside, preview }: { inside: InsideData; preview
 }
 
 /**
- * Grade de professores.
+ * "Conheça nossa equipe".
  *
- * Só renderiza com `members` preenchido. Publicar foto de professor sem nome é
- * pior do que não publicar, e nome inventado não é opção — então, enquanto os
- * nomes e as disciplinas não chegarem, a seção simplesmente não existe no HTML.
- * As fotos já estão tratadas e versionadas; falta só o dado.
+ * As fotos são recortes sem fundo (PNG/WebP com alfa) enquadrados todos do
+ * mesmo jeito — topo da cabeça a ~9% da altura, cabeça com ~31% —, então a
+ * grade fica alinhada mesmo vindo de fotos tiradas em lugares diferentes. O
+ * fundo de cada card é o arco claro do CSS, não a foto.
+ *
+ * Nome e disciplina são opcionais: sem eles, o card mostra só a foto. Nome
+ * inventado não é opção.
  */
 function TeamGrid({ team }: { team: TeamBlock }) {
   return (
-    <div className="team">
+    <div className="team" id="equipe">
       <p className="panel__kicker">{team.kicker}</p>
       <h3 className="panel__title" style={{ fontSize: 30, margin: '8px 0 10px' }}>
         {team.title}
@@ -182,15 +185,15 @@ function TeamGrid({ team }: { team: TeamBlock }) {
       {team.lead && <p className="sec-lead">{team.lead}</p>}
       <ul className="team__grid">
         {team.members.map((m, i) => (
-          <Reveal as="li" key={m.name} index={i % 5} className="tmember">
+          <Reveal as="li" key={m.photo_url ?? m.name ?? i} index={i % 5} className="tmember">
             <span className="tmember__ph">
               {m.photo_url && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={m.photo_url} alt={m.alt || m.name} width={320} height={320} loading="lazy" decoding="async" />
+                <img src={m.photo_url} alt={m.alt || m.name} width={480} height={600} loading="lazy" decoding="async" />
               )}
             </span>
-            <b>{m.name}</b>
-            <span>{m.role}</span>
+            {m.name && <b>{m.name}</b>}
+            {m.role && <span>{m.role}</span>}
           </Reveal>
         ))}
       </ul>

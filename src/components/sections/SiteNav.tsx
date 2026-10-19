@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SiteButton, WhatsAppIcon } from '../primitives';
 import { whatsappUrl } from '@/content/helpers';
-import type { NavSection, SiteLinks } from '@/content/types';
+import type { NavLink, NavSection, SiteLinks } from '@/content/types';
 
 /**
  * Nav fixa do template.
@@ -25,6 +25,8 @@ export function SiteNav({
 }) {
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Submenu de cursos no mobile: abre fechado a cada vez que o menu abre.
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const burgerRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -72,7 +74,10 @@ export function SiteNav({
 
   const waHref = nav.show_whatsapp ? whatsappUrl(nav.whatsapp_number) : null;
   const ctaHref = '#matriculas';
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenGroup(null);
+  };
 
   return (
     <>
@@ -90,11 +95,15 @@ export function SiteNav({
 
         {nav.links.length > 0 && (
           <nav className="nav__links" aria-label="Principal">
-            {nav.links.map((link) => (
-              <a key={link.anchor} href={`#${link.anchor}`}>
-                {link.label}
-              </a>
-            ))}
+            {nav.links.map((link) =>
+              link.children?.length ? (
+                <CourseGroup key={link.label} link={link} />
+              ) : (
+                <a key={link.anchor} href={`#${link.anchor}`}>
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
         )}
 
@@ -123,7 +132,7 @@ export function SiteNav({
             aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={menuOpen}
             aria-controls="org-site-menu"
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
           >
             <span />
             <span />
@@ -152,11 +161,46 @@ export function SiteNav({
           </div>
 
           <nav className="menu__links" aria-label="Principal">
-            {nav.links.map((link) => (
-              <a key={link.anchor} href={`#${link.anchor}`} onClick={closeMenu}>
-                {link.label}
-              </a>
-            ))}
+            {nav.links.map((link) => {
+              if (!link.children?.length) {
+                return (
+                  <a key={link.anchor} href={`#${link.anchor}`} onClick={closeMenu}>
+                    {link.label}
+                  </a>
+                );
+              }
+              const expanded = openGroup === link.label;
+              const subId = `menu-sub-${link.anchor}`;
+              return (
+                <div key={link.label} className={`menu__group${expanded ? ' is-open' : ''}`}>
+                  <button
+                    type="button"
+                    className="menu__toggle"
+                    aria-expanded={expanded}
+                    aria-controls={subId}
+                    onClick={() => setOpenGroup(expanded ? null : link.label)}
+                  >
+                    {link.label}
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <ul className="menu__sub" id={subId} hidden={!expanded}>
+                    {link.children.map((child) => (
+                      <li key={child.anchor}>
+                        <a href={`#${child.anchor}`} onClick={closeMenu}>
+                          <i className={`course-dot course-dot--${child.tone}`} aria-hidden="true" />
+                          <span>
+                            <b>{child.label}</b>
+                            {child.hint && <small>{child.hint}</small>}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
             <a href={links.loginUrl}>{nav.login_label || 'Entrar'}</a>
           </nav>
 
@@ -175,5 +219,26 @@ export function SiteNav({
         </div>
       )}
     </>
+  );
+}
+
+/**
+ * Os cursos na barra do desktop: em vez de um "Cursos" genérico, os três
+ * aparecem como pílulas, cada uma com o marcador na cor da própria seção —
+ * teal da Redação, quente do Miguilim, navy do Empresarial.
+ */
+function CourseGroup({ link }: { link: NavLink }) {
+  return (
+    <div className="nav__courses" role="group" aria-label={link.label}>
+      <span className="nav__courses-k" aria-hidden="true">
+        {link.label}
+      </span>
+      {link.children?.map((child) => (
+        <a key={child.anchor} className="nav__course" href={`#${child.anchor}`}>
+          <i className={`course-dot course-dot--${child.tone}`} aria-hidden="true" />
+          {child.label}
+        </a>
+      ))}
+    </div>
   );
 }

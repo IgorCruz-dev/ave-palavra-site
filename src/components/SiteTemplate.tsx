@@ -26,7 +26,10 @@ import './premium-v1.css';
  * cada seção pinta o próprio fundo:
  *
  *   herói escuro → resultados claro → método escuro → travessia claro →
- *   miguilim quente → por dentro claro → serviços escuro → painel → rodapé.
+ *   miguilim quente → empresarial escuro → por dentro claro → painel → rodapé.
+ *
+ * Os três cursos (Redação e Humanidades, Miguilim e Empresarial) ficam em
+ * sequência, que é a ordem em que a nav os apresenta.
  *
  * A seção quente do Miguilim é o único desvio de paleta do site, e é
  * deliberado: ver o comentário em MiguilimSection.
@@ -98,12 +101,12 @@ export function SiteTemplate() {
           <MiguilimSection miguilim={content.miguilim} ctx={links} />
         )}
 
-        {content.inside?.visible !== false && content.inside && (
-          <InsideSection inside={content.inside} preview={false} />
-        )}
-
         {content.services?.visible !== false && content.services && (
           <ServicesSection services={content.services} ctx={links} />
+        )}
+
+        {content.inside?.visible !== false && content.inside && (
+          <InsideSection inside={content.inside} preview={false} />
         )}
 
         {content.enroll?.visible !== false && content.enroll && (

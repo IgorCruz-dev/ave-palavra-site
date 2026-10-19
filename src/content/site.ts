@@ -35,15 +35,16 @@ export const CONTEUDO: SiteContent = {
         },
         {
           label: 'Cursos',
-          anchor: 'cursos',
+          anchor: 'redacao',
+          children: [
+            { label: 'Redação', anchor: 'redacao', hint: 'Redação e Humanidades · vestibular', tone: 'teal' },
+            { label: 'Miguilim', anchor: 'miguilim', hint: 'Português e cultura · 7º e 8º ano', tone: 'warm' },
+            { label: 'Empresarial', anchor: 'servicos', hint: 'Português empresarial e SIPAT\u2019s', tone: 'navy' },
+          ],
         },
         {
           label: 'Por dentro',
           anchor: 'por-dentro',
-        },
-        {
-          label: 'Matrículas',
-          anchor: 'matriculas',
         },
       ],
       visible: true,
@@ -330,7 +331,7 @@ export const CONTEUDO: SiteContent = {
     },
     services: {
       visible: true,
-      eyebrow: 'Outros serviços',
+      eyebrow: 'Empresarial',
       title: 'A escola também atende',
       title_highlight: 'empresas e equipes.',
       title_highlight_inline: true,
@@ -509,16 +510,22 @@ export const CONTEUDO: SiteContent = {
         video_url: null,
         external_url: 'https://www.instagram.com/ave_palavra/',
       },
-      // A grade só aparece quando `members` tiver gente. Enquanto os nomes e as
-      // disciplinas não chegarem do founder, ela fica fora do ar: publicar foto
-      // de professor sem nome é pior do que não publicar, e nome inventado
-      // não é opção. As cinco fotos já estão tratadas em /img/professores/.
+      // Fotos com o fundo removido, em /img/equipe/. PENDENTE: nomes e
+      // disciplinas ainda não chegaram — nome inventado não é opção. Com `name`
+      // vazio o card mostra só a foto; basta preencher `name` e `role` (e
+      // trocar o `alt` por "Profa. Fulana, de Redação", por exemplo).
       team: {
         visible: true,
         kicker: 'Quem ensina',
-        title: 'Os professores da casa',
+        title: 'Conheça nossa equipe',
         lead: 'Humanidades com dois professores em sala, correções por especialistas e tutorias um a um.',
-        members: [],
+        members: [
+          { name: '', role: '', photo_url: '/img/equipe/equipe-1.webp', alt: 'Integrante da equipe da Ave, Palavra!, sorrindo, de braços cruzados' },
+          { name: '', role: '', photo_url: '/img/equipe/equipe-2.webp', alt: 'Integrante da equipe da Ave, Palavra!, sorrindo, de braços cruzados' },
+          { name: '', role: '', photo_url: '/img/equipe/equipe-3.webp', alt: 'Integrante da equipe da Ave, Palavra!, sorrindo, de óculos' },
+          { name: '', role: '', photo_url: '/img/equipe/equipe-4.webp', alt: 'Integrante da equipe da Ave, Palavra!, sorrindo, com a camiseta da escola' },
+          { name: '', role: '', photo_url: '/img/equipe/equipe-5.webp', alt: 'Integrante da equipe da Ave, Palavra!, de óculos, com a camiseta da escola' },
+        ],
       },
       testimonials: [
         {
