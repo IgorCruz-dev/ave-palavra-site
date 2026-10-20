@@ -22,5 +22,9 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "typescript": "^5"
+  },
+  "author": "Igor Cruz <igorjscruz07@gmail.com> (https://igorcruz.com.br)",
+  "engines": {
+    "node": ">=20.9"
   }
 }
