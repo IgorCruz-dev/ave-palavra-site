@@ -75,7 +75,9 @@ export const CONTEUDO: SiteContent = {
       // protagonista. Para voltar a ter uma foto aqui, use uma foto NATURAL,
       // sem upscale nem suavização de pele, recortada sem fundo.
       person: null,
-      eyebrow: 'Redação · Português · Repertório',
+      // A linha "Redação · Português · Repertório" acima do título saiu, a
+      // pedido: o topo vai direto ao título em todas as larguras.
+      eyebrow: '',
       visible: true,
       checklist: {
         items: [

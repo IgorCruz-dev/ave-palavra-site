@@ -472,9 +472,7 @@ html:has([data-org-site]) {
     .pen{width:150px;right:-6px;left:auto;bottom:auto;top:28px}
 
     .hero__copy{padding:0 20px 56px;margin-top:-34px}
-    /* No celular o topo vai direto ao título: sem o ponto e sem a linha
-       "Redação · Português · Repertório" acima dele. */
-    .hero__copy .eyebrow{display:none}
+    .hero__copy .eyebrow{font-size:11px;letter-spacing:.16em}
     .hero__title{font-size:44px;line-height:1.02;margin:14px 0 18px}
     .hero__lead{font-size:16.5px}
     .hero__actions{flex-direction:column;gap:12px;margin:28px 0 34px}
