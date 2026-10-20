@@ -6,3 +6,7 @@ next-env.d.ts
 .DS_Store
 .env*
 .vercel
+
+# Material de trabalho do cliente (briefings, PDFs, áudios, fotos de WhatsApp).
+# Fica fora do repositório: o script de revisão grava aqui só localmente.
+materials/
