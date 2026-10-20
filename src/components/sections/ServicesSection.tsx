@@ -11,6 +11,7 @@ import type { ServicesSection as ServicesData, SiteLinks } from '@/content/types
  * nav. Continua mais enxuta que as outras duas seções (metade do respiro
  * vertical, título menor, nenhuma imagem) para a Redação seguir como vitrine.
  * Cada card mostra título e descrição; os blocos ficam em "Ver detalhes".
+ * "Também oferecemos" é lista em colunas, não tags: como tags, lia solto.
  *
  * O empresarial tem mais corpo que os demais porque é o único com conteúdo
  * próprio publicado pela escola. A lista de chips aceita itens novos sem
@@ -85,11 +86,9 @@ export function ServicesSection({
         {others && others.items.length > 0 && (
           <Reveal className="svc__others">
             <p className="panel__kicker">{others.kicker}</p>
-            <ul className="tagrow">
+            <ul className="svc__list">
               {others.items.map((item) => (
-                <li className="tag" key={item}>
-                  {item}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </Reveal>
