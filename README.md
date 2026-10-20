@@ -1,12 +1,54 @@
 # Ave, Palavra! — site institucional
 
-Site da **Ave, Palavra! Português e Cia** (Franca/SP). Next.js com exportação
-estática: `npm run build` gera HTML/CSS/JS prontos em `out/`, que sobem em
-qualquer hospedagem (Vercel, Netlify, S3, servidor próprio).
+[![CI](https://github.com/IgorCruz-dev/ave-palavra-site/actions/workflows/ci.yml/badge.svg)](https://github.com/IgorCruz-dev/ave-palavra-site/actions/workflows/ci.yml)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](tsconfig.json)
+[![Acessibilidade](https://img.shields.io/badge/a11y-WCAG%20AA-2E7D32)](#acessibilidade-e-movimento)
 
-Não há banco, API nem área autenticada. Tudo o que o site mostra está neste
-repositório. O portal do aluno continua na StudyTrack — os botões "Entrar" e
-de matrícula apontam para lá.
+**Site institucional da Ave, Palavra! Português e Cia, escola de redação e
+língua portuguesa em Franca/SP, feito para converter visitantes em matrículas
+sem depender de servidor, banco ou CMS.**
+
+<p align="center">
+  <img src="docs/screenshot-desktop.webp" alt="Página inicial no desktop" width="72%">
+  &nbsp;
+  <img src="docs/screenshot-mobile.webp" alt="Página inicial no celular" width="22%">
+</p>
+
+> Projeto feito sob encomenda para um cliente real. O código é público como
+> portfólio; marca, textos e imagens pertencem à escola (veja [Licença](#licença)).
+
+## Destaques
+
+| | |
+|---|---|
+| **Exportação estática** | `next build` gera HTML/CSS/JS puro em `out/`: hospeda em qualquer lugar, custo zero, nada para cair |
+| **Conteúdo tipado** | Todo texto, imagem e CTA vive em um único arquivo (`src/content/site.ts`) validado pelo TypeScript |
+| **Acessível** | Contraste AA, um `<h1>` por página, navegação por teclado e respeito a `prefers-reduced-motion` |
+| **Leve** | Imagens em WebP com `srcset`, fontes auto-hospedadas, sem dependências de runtime além do React |
+| **Integrado à StudyTrack** | O portal do aluno e a matrícula apontam para a plataforma [StudyTrack](https://github.com/kauaguerrero/studytrack-frontend) |
+
+## Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Framework | Next.js 16 (App Router, `output: 'export'`) |
+| Linguagem | TypeScript |
+| Estilo | CSS puro com escopo em `[data-org-site]` |
+| Qualidade | ESLint (`eslint-config-next`), `tsc --noEmit`, CI no GitHub Actions |
+
+## Decisões técnicas
+
+- **Estático em vez de SSR ou CMS.** O conteúdo muda poucas vezes por ano.
+  Um site estático elimina servidor, banco e painel, e com isso custo,
+  manutenção e superfície de ataque. Editar continua simples: um arquivo.
+- **Conteúdo como código tipado.** Em vez de JSON solto, `site.ts` segue o
+  contrato de `types.ts`: um campo esquecido quebra o `typecheck` antes de ir ao
+  ar, não a página em produção.
+- **Textos que não envelhecem.** `{years}` é calculado a partir do ano de
+  fundação na hora do build: nada de "há 16 anos" desatualizado.
+- **Privacidade por padrão.** Depoimentos sem nome, foto ou ano; só entram com
+  autorização (e dos responsáveis, no caso de menores).
 
 ## Rodar
 
@@ -82,3 +124,14 @@ uma página em branco.
 
 Fraunces, Manrope e Caveat, todas sob SIL Open Font License, auto-hospedadas em
 `public/fonts/`.
+
+## Licença
+
+Código público **apenas como portfólio**: todos os direitos reservados (veja
+[LICENSE](LICENSE)). Marca, textos e imagens pertencem à Ave, Palavra!
+Português e Cia.
+
+## Autor
+
+Desenvolvido por **Igor Cruz** · [igorcruz.com.br](https://igorcruz.com.br) ·
+[GitHub](https://github.com/IgorCruz-dev)
