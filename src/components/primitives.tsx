@@ -295,8 +295,7 @@ export function Eyebrow({
 
 /**
  * Selo "Exemplo ilustrativo". Saiu da folha de Resultados e do painel do
- * Método a pedido; ali a honestidade ficou no conteúdo (sem nota, título
- * "Exemplo de correção"). Segue nos blocos desligados (evolução, mural).
+ * Método a pedido da escola. Segue nos blocos desligados (evolução, mural).
  */
 export function DemoTag({
   children,
