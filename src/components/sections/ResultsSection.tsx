@@ -7,8 +7,11 @@ import type { Approvals, Evolution, FeaturedEssay, RealStat, ResultsSection as R
  * Seção "Resultados": folha de redação 3D com o selo da nota, card de evolução
  * e mural de aprovações, mais a faixa de fatos verificados.
  *
- * Tudo que é ilustrativo carrega o selo "Exemplo ilustrativo" (DemoTag) — a
- * regra é do conteúdo (`is_example`), não do componente.
+ * A folha de redação é ilustrativa (`is_example`) e não leva mais o selo
+ * amarelo, a pedido. Para continuar honesta sem o selo, ela não mostra nota:
+ * numa seção chamada "Resultados", um 960 sem aviso leria como resultado real
+ * de aluno. Com uma redação real e autorizada (`is_example: false`), o selo da
+ * nota volta.
  */
 export function ResultsSection({
   results,
@@ -122,13 +125,10 @@ function EssaySheet3D({ essay, symbolUrl }: { essay: FeaturedEssay; symbolUrl: s
               ))}
             </div>
           </div>
-          <ScoreStamp score={essay.score ?? 0} max={essay.max_score} />
+          {!essay.is_example && essay.score != null && <ScoreStamp score={essay.score} max={essay.max_score} />}
           {first && <span className="hand hand--1">{first}</span>}
           {second && <span className="hand hand--2">{second}</span>}
         </div>
-        {essay.is_example && (
-          <DemoTag as="figcaption">Exemplo ilustrativo · substituir por redação real autorizada</DemoTag>
-        )}
       </Reveal>
   );
 }

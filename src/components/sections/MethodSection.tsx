@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { BrandMark, DemoTag, Reveal, SectionTitle } from '../primitives';
+import { BrandMark, Reveal, SectionTitle } from '../primitives';
 import type {
   CompetencyScore,
   CorrectionDemo as CorrectionData,
@@ -132,7 +132,9 @@ function CorrectionDemo({
     <Reveal className="correction" id="correcao">
       <div className="correction__paper">
         <div className="cp__top">
-          <span className="cp__title">Redação corrigida</span>
+          {/* Sem o selo amarelo, o aviso de que é demonstração fica no próprio
+              título do painel. */}
+          <span className="cp__title">{demo.is_example ? 'Exemplo de correção' : 'Redação corrigida'}</span>
           {demo.theme && <span className="cp__tag">Tema: {demo.theme}</span>}
         </div>
 
@@ -185,9 +187,6 @@ function CorrectionDemo({
           </div>
         )}
 
-        {demo.is_example && (
-          <DemoTag variant="light">Demonstração do conceito · exemplo de correção</DemoTag>
-        )}
         {showPlatformLabel && demo.show_platform_label && (
           <p className="platform-label">Correção acompanhada na plataforma StudyTrack</p>
         )}

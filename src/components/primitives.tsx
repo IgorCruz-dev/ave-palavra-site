@@ -294,8 +294,9 @@ export function Eyebrow({
 }
 
 /**
- * Selo "Exemplo ilustrativo". Nunca deve ser omitido de um dado com
- * `is_example: true` — é o que separa demonstração de resultado real.
+ * Selo "Exemplo ilustrativo". Saiu da folha de Resultados e do painel do
+ * Método a pedido; ali a honestidade ficou no conteúdo (sem nota, título
+ * "Exemplo de correção"). Segue nos blocos desligados (evolução, mural).
  */
 export function DemoTag({
   children,

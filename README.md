@@ -29,10 +29,11 @@ Pontos que vale conhecer:
 
 - **`{years}`** é substituído pelos anos desde `hero.founded_year` na hora de
   renderizar. Nunca escreva "há 16 anos" fixo; o texto envelheceria sozinho.
-- **`is_example: true`** faz o bloco aparecer com o selo amarelo "Exemplo
-  ilustrativo". A nota 960, a evolução 560→960 e as notas C1–C5 são
-  demonstrações do método, não resultados reais. **Não remova o selo** de um
-  dado que não seja um resultado real e autorizado.
+- **`is_example: true`** marca o que é demonstração, não resultado real. Os
+  selos amarelos "Exemplo ilustrativo" saíram a pedido; no lugar deles, a folha
+  de redação de Resultados não mostra nota, e o painel do Método se chama
+  "Exemplo de correção". Ao trocar por uma redação real e autorizada, use
+  `is_example: false` e a nota volta a aparecer.
 - **Mural de aprovações**: está oculto porque `results.approvals.items` está
   vazio. Preencha a lista e mude `placeholder_when_empty` se quiser exibi-lo.
 - **Depoimentos** (`inside.testimonials`): publique apenas com autorização de
